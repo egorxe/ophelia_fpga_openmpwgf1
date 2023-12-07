@@ -1,0 +1,25 @@
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "efuse_array" (byte position 3882056): Warning:  Cell efuse_array boundary was redefined.
+Error while reading cell "user_project_wrapper" (byte position 33817722): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 33944066): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 34147788): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 34304886): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 35135046): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 35258152): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 35481992): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 35608734): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 36096802): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 36239342): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 36488460): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 36628960): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 37634964): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 37827554): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 38048174): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "user_project_wrapper" (byte position 38206864): Warning: cell "VIA_via4_5_6200_6200_4_4_1240_1240" placed on top of itself.  Ignoring the extra one.
+No errors found.
+[INFO]: Saving mag view with DRC errors (/home/egor/proj/fpga2/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.06_11.50.11/results/signoff/user_project_wrapper.drc.mag)
