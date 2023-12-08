@@ -19,7 +19,8 @@
         "efuse_array"
     ],
     "LVS_SPICE_FILES": [
-        "$PDK_ROOT/$PDK/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice"
+        "$PDK_ROOT/$PDK/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice",
+        "$UPRJ_ROOT/lvs/efuse_array.spice"
     ],
     "LVS_VERILOG_FILES": [
         "$UPRJ_ROOT/verilog/gl/fpga_struct_block.v",
