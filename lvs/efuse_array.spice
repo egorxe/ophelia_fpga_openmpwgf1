@@ -1,342 +1,308 @@
-* NGSPICE file created from efuse_array.ext - technology: gf180mcuC
-
-.SUBCKT efuse in out PARAMS: PBLOW=0
-*
-Rfuse in out R='200*(1-pblow) + 900*pblow'
-*
-.ENDS efuse
-
-.subckt efuse_array COL_PROG[0] DO[0] COL_PROG[1] DO[1] COL_PROG[2] DO[2] COL_PROG[3]
-+ DO[3] COL_PROG[4] DO[4] COL_PROG[5] DO[5] COL_PROG[6] DO[6] COL_PROG[7] DO[7] LINE[0]
-+ LINE[1] LINE[2] LINE[3] LINE[4] LINE[5] LINE[6] LINE[7] LINE[8] LINE[9] LINE[10]
-+ LINE[11] LINE[12] LINE[13] LINE[14] LINE[15] SENSE nPRESET VDD VSS
-X0 VSS LINE[13] a_360_116673# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X1 VSS LINE[15] a_423_135758# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X2 VSS LINE[12] a_360_104044# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X3 VSS LINE[14] a_423_123129# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X4 VSS LINE[11] a_360_95530# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X5 a_423_89849# LINE[10] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X6 a_423_55017# a_426_139459# efuse
-X7 a_426_141315# a_360_108159# efuse
-X8 a_423_17622# a_426_136675# efuse
-X9 a_423_81335# LINE[9] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X10 a_11260_10573# a_11260_11021# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X11 a_11260_8623# a_11260_8175# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X12 a_360_113334# LINE[13] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X13 a_423_132419# LINE[15] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X14 VDD COL_PROG[5] a_426_141315# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X15 VSS LINE[15] a_423_131643# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X16 VSS LINE[11] a_423_97587# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X17 a_423_67646# a_426_143171# efuse
-X18 a_423_33590# a_426_143171# efuse
-X19 a_423_20961# a_426_139459# efuse
-X20 VSS LINE[2] a_360_18904# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X21 a_423_594# LINE[0] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X22 a_426_137603# SENSE a_11260_3379# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X23 a_423_102762# a_426_136675# efuse
-X24 a_426_137603# a_360_87016# efuse
-X25 a_426_142243# a_360_125963# efuse
-X26 VSS LINE[15] a_360_129586# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X27 a_426_137603# a_360_104044# efuse
-X28 a_426_138531# a_360_2652# efuse
-X29 a_423_3933# a_426_139459# efuse
-X30 VDD COL_PROG[7] a_426_143171# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X31 a_423_80559# a_426_139459# efuse
-X32 a_360_74879# LINE[8] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X33 VSS LINE[7] a_423_67646# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X34 VSS LINE[6] a_423_55017# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X35 a_423_9108# a_426_136675# efuse
-X36 a_423_115391# a_426_140387# efuse
-X37 a_426_141315# a_360_99645# efuse
-X38 a_423_98363# LINE[11] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X39 a_426_141315# a_360_65589# efuse
-X40 a_426_137603# a_360_52960# efuse
-X41 a_423_51678# LINE[6] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X42 a_360_19680# LINE[2] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X43 a_426_137603# a_360_10390# efuse
-X44 a_423_111276# a_426_136675# efuse
-X45 a_426_138531# SENSE a_11260_5777# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X46 a_426_138531# a_360_121848# efuse
-X47 VSS LINE[13] a_423_118730# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X48 DO[4] a_11260_11021# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X49 a_426_139459# SENSE a_11260_8175# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X50 a_423_46503# a_426_139459# efuse
-X51 VSS LINE[3] a_423_33590# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X52 VSS LINE[2] a_423_20961# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X53 DO[5] a_11260_13419# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X54 a_360_70764# LINE[8] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X55 VSS LINE[8] a_360_69988# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X56 a_423_64307# LINE[7] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X57 a_423_42104# a_426_143171# efuse
-X58 a_426_141315# a_360_23019# efuse
-X59 a_426_140387# SENSE a_11260_10573# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X60 a_426_137603# a_360_129586# efuse
-X61 a_423_123905# a_426_140387# efuse
-X62 a_426_137603# a_360_61474# efuse
-X63 a_360_108935# LINE[12] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X64 a_423_81335# a_426_140387# efuse
-X65 a_426_138531# a_360_28194# efuse
-X66 a_426_142243# a_360_134477# efuse
-X67 VSS LINE[13] a_423_114615# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X68 a_423_16562# a_426_143171# efuse
-X69 a_426_137603# a_360_78502# efuse
-X70 a_11260_1429# a_11260_981# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X71 a_423_98363# a_426_140387# efuse
-X72 a_360_83393# LINE[9] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X73 VSS LINE[4] a_360_40047# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X74 a_426_142243# a_360_83393# efuse
-X75 a_423_72821# LINE[8] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X76 DO[6] a_11260_15817# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X77 a_423_94248# a_426_136675# efuse
-X78 a_423_60192# LINE[7] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X79 DO[0] a_11260_1429# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X80 a_426_142243# a_360_100421# efuse
-X81 DO[7] a_11260_18215# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X82 VSS LINE[14] a_423_127244# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X83 a_360_104820# LINE[12] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X84 a_423_131643# a_426_139459# efuse
-X85 a_423_123905# LINE[14] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X86 a_423_111276# LINE[13] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X87 VSS LINE[11] a_360_99645# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X88 VSS LINE[10] a_360_87016# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X89 a_426_141315# a_360_48561# efuse
-X90 a_11260_981# a_11260_1429# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X91 VDD nPRESET a_11260_10573# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X92 VSS LINE[4] a_423_42104# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X93 a_426_137603# a_360_35932# efuse
-X94 a_423_12447# a_426_139459# efuse
-X95 a_423_60192# a_426_136675# efuse
-X96 a_423_30251# LINE[3] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X97 a_11260_3379# a_11260_3827# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X98 VDD nPRESET a_11260_12971# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X99 a_426_142243# a_360_91907# efuse
-X100 DO[4] a_11260_11021# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X101 VDD nPRESET a_11260_15369# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X102 DO[1] a_11260_3827# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X103 VSS LINE[7] a_360_65589# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X104 VSS LINE[6] a_360_52960# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X105 a_423_47279# LINE[5] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X106 DO[5] a_11260_13419# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X107 a_360_96306# LINE[11] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X108 VSS LINE[10] a_423_89073# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X109 a_423_25076# a_426_143171# efuse
-X110 DO[2] a_11260_6225# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X111 a_11260_15817# a_11260_15369# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X112 a_423_106877# a_426_140387# efuse
-X113 a_423_85734# LINE[10] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X114 a_423_72821# a_426_140387# efuse
-X115 a_426_137603# a_360_44446# efuse
-X116 a_423_30251# a_426_140387# efuse
-X117 a_426_142243# a_360_117449# efuse
-X118 a_11260_18215# a_11260_17767# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X119 a_426_142243# a_360_49337# efuse
-X120 a_426_142243# a_360_6767# efuse
-X121 a_11260_5777# a_11260_6225# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X122 a_423_8048# a_426_143171# efuse
-X123 VSS LINE[11] a_423_101702# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X124 VSS LINE[2] a_360_23019# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X125 VDD nPRESET a_11260_17767# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X126 a_360_66365# LINE[7] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X127 VSS LINE[6] a_423_59132# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X128 VDD nPRESET a_11260_3379# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X129 a_11260_8175# a_11260_8623# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X130 VSS LINE[1] a_423_12447# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X131 VSS LINE[7] a_360_61474# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X132 a_426_141315# a_360_57075# efuse
-X133 a_423_55793# LINE[6] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X134 a_423_43164# LINE[5] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X135 a_426_136675# SENSE a_11260_981# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X136 a_426_138531# a_360_62250# efuse
-X137 DO[3] a_11260_8623# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X138 DO[6] a_11260_15817# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X139 a_11260_3827# a_11260_3379# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X140 a_426_138531# a_360_113334# efuse
-X141 a_423_106877# LINE[12] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X142 VSS LINE[12] a_423_106101# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X143 DO[7] a_11260_18215# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X144 a_11260_6225# a_11260_5777# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X145 VSS LINE[8] a_360_74103# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X146 a_423_37989# a_426_139459# efuse
-X147 a_360_32309# LINE[3] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X148 VSS LINE[3] a_360_31533# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X149 VSS LINE[2] a_423_25076# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X150 a_360_62250# LINE[7] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X151 a_423_21737# LINE[2] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X152 a_426_142243# a_360_74879# efuse
-X153 a_11260_1429# a_11260_981# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X154 VDD nPRESET a_11260_5777# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X155 VDD COL_PROG[3] a_426_139459# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X156 VSS LINE[5] a_360_48561# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X157 VDD nPRESET a_11260_8175# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X158 a_423_123129# a_426_139459# efuse
-X159 a_423_102762# LINE[12] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X160 a_360_79278# LINE[9] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X161 a_426_137603# a_360_69988# efuse
-X162 a_423_68706# LINE[8] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X163 a_426_137603# a_360_27418# efuse
-X164 a_423_128304# a_426_136675# efuse
-X165 a_423_55793# a_426_140387# efuse
-X166 a_360_40823# LINE[4] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X167 a_11260_8623# a_11260_8175# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X168 a_11260_15817# a_11260_15369# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X169 a_423_85734# a_426_136675# efuse
-X170 a_426_142243# a_360_40823# efuse
-X171 a_426_138531# a_360_70764# efuse
-X172 a_11260_18215# a_11260_17767# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X173 a_423_135758# a_426_143171# efuse
-X174 a_423_115391# LINE[13] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X175 VSS LINE[5] a_360_44446# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X176 a_426_141315# a_360_40047# efuse
-X177 a_423_38765# LINE[4] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X178 VSS LINE[4] a_423_37989# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X179 a_360_87792# LINE[10] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X180 a_426_138531# a_360_87792# efuse
-X181 a_423_64307# a_426_140387# efuse
-X182 a_423_51678# a_426_136675# efuse
-X183 a_426_142243# a_360_108935# efuse
-X184 a_426_138531# a_360_104820# efuse
-X185 a_11260_11021# a_11260_10573# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X186 a_423_101702# a_426_143171# efuse
-X187 a_360_57851# LINE[6] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X188 VSS LINE[6] a_360_57075# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X189 VSS LINE[1] a_360_10390# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X190 a_11260_13419# a_11260_12971# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X191 a_426_141315# a_360_91131# efuse
-X192 a_426_142243# a_360_57851# efuse
-X193 a_360_53736# LINE[6] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X194 VSS LINE[5] a_423_46503# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X195 a_423_77220# LINE[9] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X196 a_423_34650# LINE[4] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X197 a_423_21737# a_426_140387# efuse
-X198 a_426_142243# SENSE a_11260_15369# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X199 VSS LINE[15] a_360_133701# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X200 a_426_138531# a_360_96306# efuse
-X201 VSS LINE[0] a_360_5991# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X202 a_360_6767# LINE[0] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X203 a_360_121848# LINE[14] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X204 VSS LINE[0] a_360_1876# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X205 VSS LINE[0] a_423_8048# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X206 a_423_4709# LINE[0] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X207 a_423_128304# LINE[15] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X208 a_423_29475# a_426_139459# efuse
-X209 a_360_23795# LINE[2] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X210 VSS LINE[1] a_423_16562# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X211 a_360_11166# LINE[1] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X212 a_426_141315# a_360_14505# efuse
-X213 a_423_77220# a_426_136675# efuse
-X214 a_11260_12971# a_11260_13419# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X215 a_426_138531# a_360_53736# efuse
-X216 VDD COL_PROG[1] a_426_137603# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X217 a_360_134477# LINE[15] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X218 a_11260_15369# a_11260_15817# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X219 a_423_118730# a_426_143171# efuse
-X220 VSS LINE[3] a_360_27418# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X221 a_360_2652# LINE[0] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X222 a_426_143171# SENSE a_11260_17767# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X223 VDD COL_PROG[4] a_426_140387# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X224 VSS LINE[0] a_423_3933# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X225 a_423_47279# a_426_140387# efuse
-X226 a_426_137603# a_360_121072# efuse
-X227 a_423_34650# a_426_136675# efuse
-X228 a_426_142243# a_360_32309# efuse
-X229 a_423_13223# LINE[1] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X230 a_426_142243# a_360_66365# efuse
-X231 a_426_138531# a_360_19680# efuse
-X232 a_11260_11021# a_11260_10573# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X233 a_360_130362# LINE[15] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X234 a_11260_981# a_11260_1429# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X235 a_423_127244# a_426_143171# efuse
-X236 a_360_36708# LINE[4] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X237 VSS LINE[3] a_423_29475# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X238 a_11260_13419# a_11260_12971# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X239 a_11260_17767# a_11260_18215# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X240 a_423_114615# a_426_139459# efuse
-X241 a_423_93188# a_426_143171# efuse
-X242 VSS LINE[9] a_360_78502# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X243 a_423_26136# LINE[3] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X244 a_11260_3379# a_11260_3827# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X245 a_423_13223# a_426_140387# efuse
-X246 a_426_141315# a_360_133701# efuse
-X247 a_426_138531# a_360_79278# efuse
-X248 a_423_43164# a_426_136675# efuse
-X249 VSS LINE[10] a_360_91131# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X250 a_360_49337# LINE[5] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X251 VDD COL_PROG[6] a_426_142243# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X252 VSS LINE[9] a_423_80559# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X253 a_423_50618# a_426_143171# efuse
-X254 VSS LINE[4] a_360_35932# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X255 a_426_138531# a_360_45222# efuse
-X256 VDD COL_PROG[2] a_426_138531# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X257 a_360_117449# LINE[13] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X258 a_11260_5777# a_11260_6225# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X259 a_11260_12971# a_11260_13419# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X260 VSS LINE[13] a_360_112558# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X261 a_11260_8175# a_11260_8623# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X262 a_11260_15369# a_11260_15817# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X263 a_423_119790# LINE[14] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X264 VSS LINE[1] a_360_14505# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X265 VSS LINE[10] a_423_93188# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X266 a_423_63531# a_426_139459# efuse
-X267 VSS LINE[5] a_423_50618# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X268 a_426_141315# a_360_82617# efuse
-X269 a_360_45222# LINE[5] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X270 a_426_142243# a_360_15281# efuse
-X271 a_360_125963# LINE[14] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X272 VSS LINE[14] a_360_125187# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X273 DO[0] a_11260_1429# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X274 a_423_110216# a_426_143171# efuse
-X275 a_423_106101# a_426_139459# efuse
-X276 a_423_76160# a_426_143171# efuse
-X277 a_426_137603# a_360_95530# efuse
-X278 a_423_4709# a_426_140387# efuse
-X279 a_360_15281# LINE[1] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X280 a_11260_17767# a_11260_18215# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X281 a_426_141315# a_360_116673# efuse
-X282 a_423_26136# a_426_136675# efuse
-X283 a_426_141315# a_360_5991# efuse
-X284 a_426_137603# a_360_112558# efuse
-X285 a_423_68706# a_426_136675# efuse
-X286 a_426_138531# a_360_11166# efuse
-X287 a_426_141315# SENSE a_11260_12971# VSS nfet_06v0 ad=0.22p pd=1.88u as=0.22p ps=1.88u w=0.5u l=0.6u
-X288 VSS LINE[14] a_360_121072# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X289 VSS LINE[7] a_423_63531# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X290 VDD nPRESET a_11260_981# VDD pfet_06v0 ad=0.836p pd=4.68u as=0.836p ps=4.68u w=1.9u l=0.5u
-X291 DO[1] a_11260_3827# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X292 a_423_9108# LINE[1] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X293 a_423_94248# LINE[11] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X294 a_423_72045# a_426_139459# efuse
-X295 a_423_38765# a_426_140387# efuse
-X296 DO[2] a_11260_6225# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X297 a_11260_10573# a_11260_11021# VDD VDD pfet_06v0 ad=0.537p pd=3.32u as=0.537p ps=3.32u w=1.22u l=0.5u
-X298 a_426_141315# a_360_125187# efuse
-X299 a_426_142243# a_360_23795# efuse
-X300 a_423_594# a_426_136675# efuse
-X301 a_426_137603# a_360_1876# efuse
-X302 VSS LINE[12] a_423_110216# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X303 a_423_89073# a_426_139459# efuse
-X304 VSS LINE[8] a_423_76160# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X305 VSS LINE[9] a_360_82617# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X306 a_426_141315# a_360_74103# efuse
-X307 a_426_141315# a_360_31533# efuse
-X308 a_360_28194# LINE[3] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X309 a_423_84674# a_426_143171# efuse
-X310 a_423_17622# LINE[2] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X311 a_426_137603# a_360_18904# efuse
-X312 VDD COL_PROG[0] a_426_136675# VDD pfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.5u
-X313 a_423_119790# a_426_136675# efuse
-X314 VSS LINE[12] a_360_108159# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X315 a_423_89849# a_426_140387# efuse
-X316 a_426_138531# a_360_130362# efuse
-X317 a_11260_3827# a_11260_3379# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X318 DO[3] a_11260_8623# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X319 a_360_100421# LINE[11] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X320 a_423_59132# a_426_143171# efuse
-X321 a_423_97587# a_426_139459# efuse
-X322 a_360_91907# LINE[10] VSS VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X323 VSS LINE[9] a_423_84674# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X324 a_11260_6225# a_11260_5777# VSS VSS nfet_06v0 ad=0.361p pd=2.52u as=0.361p ps=2.52u w=0.82u l=0.6u
-X325 VSS LINE[8] a_423_72045# VSS nfet_06v0 ad=22p pd=0.101m as=22p ps=0.101m w=50u l=0.7u
-X326 a_423_132419# a_426_140387# efuse
-X327 a_426_138531# a_360_36708# efuse
+.subckt efuse_bitcell  select anode VSS
+X0 anode net1 efuse
+X1 net1 select VSS VSS nfet_06v0 L=0.70u W=50u
 .ends
 
+.subckt efuse_bitcell2  select anode VSS
+X0 net1 anode efuse
+X1 net1 select VSS VSS nfet_06v0 L=0.70u W=50u
+.ends
+
+.subckt efuse_sense_amp  VDD nPRESET OUT SENSE VSS FUSE
+X2 net1 nPRESET VDD VDD pfet_06v0 L=0.50u W=1.9u
+x1 net2 OUT VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__inv_2
+x2 net1 net2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__inv_1
+x3 net2 net1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__inv_1
+X1 net1 SENSE FUSE VSS nfet_06v0 L=0.60u W=0.5u
+.ends
+
+.subckt efuse_byte ANODE_0 ANODE_1 ANODE_2 ANODE_3 ANODE_4 ANODE_5 ANODE_6 ANODE_7 VSS LINE_SEL
+x0 LINE_SEL ANODE_0 VSS efuse_bitcell2
+x1 LINE_SEL ANODE_1 VSS efuse_bitcell
+x2 LINE_SEL ANODE_2 VSS efuse_bitcell
+x3 LINE_SEL ANODE_3 VSS efuse_bitcell2
+x4 LINE_SEL ANODE_4 VSS efuse_bitcell2
+x5 LINE_SEL ANODE_5 VSS efuse_bitcell
+x6 LINE_SEL ANODE_6 VSS efuse_bitcell
+x7 LINE_SEL ANODE_7 VSS efuse_bitcell2
+.ends
+
+.subckt efuse_array LINE[0] LINE[1] LINE[2] LINE[3] LINE[4] LINE[5] LINE[6] LINE[7] LINE[8] LINE[9] LINE[10] LINE[11] LINE[12] LINE[13] LINE[14] LINE[15] VDD VSS COL_PROG[0] COL_PROG[1] COL_PROG[2] COL_PROG[3] COL_PROG[4] COL_PROG[5] COL_PROG[6] COL_PROG[7] SENSE nPRESET DO[0] DO[1] DO[2] DO[3] DO[4] DO[5] DO[6] DO[7] 
+x0_0 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_0_buf efuse_byte
+x4_0 LINE[0] LINE_0_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_1 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_1_buf efuse_byte
+x4_1 LINE[1] LINE_1_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_2 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_2_buf efuse_byte
+x4_2 LINE[2] LINE_2_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_3 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_3_buf efuse_byte
+x4_3 LINE[3] LINE_3_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_4 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_4_buf efuse_byte
+x4_4 LINE[4] LINE_4_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_5 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_5_buf efuse_byte
+x4_5 LINE[5] LINE_5_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_6 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_6_buf efuse_byte
+x4_6 LINE[6] LINE_6_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_7 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_7_buf efuse_byte
+x4_7 LINE[7] LINE_7_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_8 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_8_buf efuse_byte
+x4_8 LINE[8] LINE_8_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_9 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_9_buf efuse_byte
+x4_9 LINE[9] LINE_9_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_10 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_10_buf efuse_byte
+x4_10 LINE[10] LINE_10_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_11 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_11_buf efuse_byte
+x4_11 LINE[11] LINE_11_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_12 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_12_buf efuse_byte
+x4_12 LINE[12] LINE_12_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_13 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_13_buf efuse_byte
+x4_13 LINE[13] LINE_13_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_14 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_14_buf efuse_byte
+x4_14 LINE[14] LINE_14_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x0_15 net0 net1 net2 net3 net4 net5 net6 net7 VSS LINE_15_buf efuse_byte
+x4_15 LINE[15] LINE_15_buf VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+
+X0 net0 COL_PROG[0] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X1 net1 COL_PROG[1] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X2 net2 COL_PROG[2] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X3 net3 COL_PROG[3] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X4 net4 COL_PROG[4] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X5 net5 COL_PROG[5] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X6 net6 COL_PROG[6] VDD VDD pfet_06v0 L=0.50u W=50u
+
+X7 net7 COL_PROG[7] VDD VDD pfet_06v0 L=0.50u W=50u
+
+x1_0 VDD nPRESET DO_0_buf SENSE VSS net0 efuse_sense_amp
+x3_0 DO_0_buf DO[0] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_1 VDD nPRESET DO_1_buf SENSE VSS net1 efuse_sense_amp
+x3_1 DO_1_buf DO[1] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_2 VDD nPRESET DO_2_buf SENSE VSS net2 efuse_sense_amp
+x3_2 DO_2_buf DO[2] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_3 VDD nPRESET DO_3_buf SENSE VSS net3 efuse_sense_amp
+x3_3 DO_3_buf DO[3] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_4 VDD nPRESET DO_4_buf SENSE VSS net4 efuse_sense_amp
+x3_4 DO_4_buf DO[4] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_5 VDD nPRESET DO_5_buf SENSE VSS net5 efuse_sense_amp
+x3_5 DO_5_buf DO[5] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_6 VDD nPRESET DO_6_buf SENSE VSS net6 efuse_sense_amp
+x3_6 DO_6_buf DO[6] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x1_7 VDD nPRESET DO_7_buf SENSE VSS net7 efuse_sense_amp
+x3_7 DO_7_buf DO[7] VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__buf_1
+x2_0 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_5 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_6 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_7 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_8 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_9 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_10 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_11 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_12 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_13 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_14 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_15 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_16 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_17 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_18 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_19 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_20 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_21 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_22 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_23 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_24 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_25 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_26 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_27 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_28 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_29 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_30 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_31 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_32 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_33 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_34 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_35 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_36 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_37 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_38 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_39 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_40 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_41 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_42 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_43 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_44 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_45 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_46 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_47 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_48 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_49 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_50 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_51 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_52 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_53 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_54 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_55 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_56 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_57 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_58 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_59 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_60 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_61 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_62 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_63 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_64 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_65 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_66 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_67 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_68 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_69 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_70 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_71 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_72 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_73 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_74 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_75 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_76 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_77 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_78 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_79 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_80 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_81 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_82 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_83 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_84 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_85 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_86 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_87 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_88 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_89 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_90 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_91 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_92 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_93 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_94 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_95 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_96 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_97 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_98 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_99 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_100 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_101 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_102 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_103 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_104 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_105 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_106 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_107 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_108 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_109 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_110 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_111 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_112 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_113 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_114 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_115 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_116 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_117 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_118 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_119 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_120 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_121 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_122 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_123 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_124 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_125 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_126 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_127 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_128 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_129 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_130 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_131 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_132 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_133 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_134 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_135 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_136 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_137 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_138 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_139 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_140 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_141 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_142 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_143 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_144 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_145 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_146 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_147 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_148 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_149 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_150 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_151 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_152 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_153 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_154 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_155 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_156 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_157 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_158 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_159 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_160 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_161 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_162 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_163 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_164 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_165 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_166 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_167 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_168 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_169 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_170 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_171 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_172 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_173 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_174 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_175 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_176 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_177 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_178 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_179 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_180 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_181 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_182 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_183 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_184 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_185 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_186 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_187 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_188 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_189 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_190 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_191 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_192 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_193 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_194 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_195 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_196 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_197 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_198 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_199 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_200 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_201 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_202 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_203 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_204 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_205 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_206 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_207 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_208 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+x2_209 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__fillcap_4
+.ends
+
+.end

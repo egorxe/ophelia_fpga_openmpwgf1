@@ -1,0 +1,59 @@
+OpenROAD v2.0-10879-gbf9086ac8 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/tmp/merged.nom.lef
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via1 :"
+  	EOLENCLOSURE 0.34 0.06 ;"
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via2 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via3 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0388] unsupported LEF58_EOLENCLOSURE property for layer Via4 :" EOLENCLOSURE 0.34 0.06 ; "
+[INFO ODB-0223]     Created 15 technology layers
+[INFO ODB-0224]     Created 56 technology vias
+[INFO ODB-0225]     Created 231 library cells
+[INFO ODB-0226] Finished LEF file:  /home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/tmp/merged.nom.lef
+[INFO ODB-0127] Reading DEF file: /home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/results/routing/user_project_wrapper.def
+[INFO ODB-0128] Design: user_project_wrapper
+[INFO ODB-0094] 		Created 100000 Insts
+[INFO ODB-0130]     Created 418 pins.
+[INFO ODB-0131]     Created 133140 components and 595279 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 491088 connections.
+[INFO ODB-0133]     Created 32292 nets and 104191 connections.
+[INFO ODB-0134] Finished DEF file: /home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/results/routing/user_project_wrapper.def
+define_corners Typical
+read_liberty -corner Typical /home/egor/.volare/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/liberty/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib
+read_liberty -corner Typical /home/egor/proj/fpga/impl/open/best/fpga_struct_block/results/final/lib/fpga_struct_block.lib
+read_liberty -corner Typical /home/egor/proj/fpga/impl/open/best/efuse_ctrl/results/final/lib/efuse_ctrl.lib
+Using 1e-12 for capacitance...
+Using 1e+00 for resistance...
+Using 1e-09 for time...
+Using 1e+00 for voltage...
+Using 1e-03 for current...
+Using 1e-06 for power...
+Using 1e-06 for distance...
+Using RCX ruleset '/home/egor/.volare/gf180mcuD/libs.tech/openlane/rules.openrcx.gf180mcuD.nom'...
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0008] extracting parasitics of user_project_wrapper ...
+[INFO RCX-0435] Reading extraction model file /home/egor/.volare/gf180mcuD/libs.tech/openlane/rules.openrcx.gf180mcuD.nom ...
+[INFO RCX-0436] RC segment generation user_project_wrapper (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 122681 rc segments
+[INFO RCX-0439] Coupling Cap extraction user_project_wrapper ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0043] 244681 wires to be extracted
+[INFO RCX-0442] 20% completion -- 51179 wires have been extracted
+[INFO RCX-0442] 26% completion -- 66062 wires have been extracted
+[INFO RCX-0442] 32% completion -- 80354 wires have been extracted
+[INFO RCX-0442] 39% completion -- 95956 wires have been extracted
+[INFO RCX-0442] 48% completion -- 119804 wires have been extracted
+[INFO RCX-0442] 72% completion -- 176276 wires have been extracted
+[INFO RCX-0442] 90% completion -- 220757 wires have been extracted
+[INFO RCX-0442] 98% completion -- 240939 wires have been extracted
+[INFO RCX-0045] Extract 32292 nets, 154755 rsegs, 154755 caps, 331579 ccs
+[INFO RCX-0015] Finished extracting user_project_wrapper.
+Writing result to /home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/results/routing/mca/process_corner_nom/user_project_wrapper.spef...
+Setting global connections for newly added cells…
+[WARNING] Did not save OpenROAD database!
+Writing extracted parasitics to '/home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/results/routing/mca/process_corner_nom/user_project_wrapper.spef'…
+[INFO RCX-0016] Writing SPEF ...
+[INFO RCX-0443] 32292 nets finished
+[INFO RCX-0017] Finished writing SPEF ...

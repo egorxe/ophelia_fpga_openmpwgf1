@@ -1,0 +1,29 @@
+Warning: No mapping for layer 'Metal1', purpose 'LEFPIN' - layer is ignored
+Warning: No mapping for layer 'Metal1', purpose 'LEFLABEL' - layer is ignored
+Warning: No mapping for layer 'Nwell', purpose 'LEFPIN' - layer is ignored
+Warning: No mapping for layer 'Nwell', purpose 'LEFLABEL' - layer is ignored
+Warning: No mapping for layer 'Pwell', purpose 'LEFPIN' - layer is ignored
+Warning: No mapping for layer 'Pwell', purpose 'LEFLABEL' - layer is ignored
+Warning: No mapping for layer 'Metal1', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Metal2', purpose 'LEFPIN' - layer is ignored
+Warning: No mapping for layer 'Metal2', purpose 'LEFLABEL' - layer is ignored
+Warning: No mapping for layer 'Metal2', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Metal3', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Metal4', purpose 'LEFPIN' - layer is ignored
+Warning: No mapping for layer 'Metal4', purpose 'LEFLABEL' - layer is ignored
+Warning: No mapping for layer 'Metal4', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Metal5', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Nwell', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Pwell', purpose 'LEFOBS' - layer is ignored
+Warning: No mapping for layer 'Metal3', purpose 'LEFPIN' - layer is ignored
+Warning: No mapping for layer 'Metal3', purpose 'LEFLABEL' - layer is ignored
+[INFO] Clearing cells…
+[INFO] Merging GDS files…
+	/home/egor/.volare/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/gds/gf180mcu_fd_sc_mcu7t5v0.gds
+	/home/egor/proj/fpga/impl/open/best/fpga_struct_block/results/final/gds/fpga_struct_block.gds
+	/home/egor/proj/fpga/impl/open/best/efuse_ctrl/results/final/gds/efuse_ctrl.gds
+[INFO] Copying top level cell 'user_project_wrapper'…
+[INFO] Checking for missing GDS…
+[INFO] All LEF cells have matching GDS cells.
+[INFO] Writing out GDS '/home/egor/proj/fpga/impl/open/designs/user_project_wrapper/runs/RUN_2023.12.11_09.23.00/results/signoff/user_project_wrapper.klayout.gds'…
+[INFO] Done.

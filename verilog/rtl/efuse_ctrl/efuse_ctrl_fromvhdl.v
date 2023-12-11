@@ -862,7 +862,7 @@ module efuse_bank_8_4(npreset, sense, prog_ena, addr, \do );
   wire [15:0] _4_;
   input [3:0] addr;
   wire [3:0] addr;
-  wire [15:0] \addr_sel_inst:1202 ;
+  wire [15:0] \addr_sel_inst:1226 ;
   output [7:0] \do ;
   wire [7:0] \do ;
   input npreset;
@@ -892,66 +892,78 @@ module efuse_bank_8_4(npreset, sense, prog_ena, addr, \do );
     .I(sense),
     .Z(_0_)
   );
-  assign sel = \addr_sel_inst:1202 ;
-  assign \addr_sel_inst:1202  = _4_;
+  assign sel = \addr_sel_inst:1226 ;
+  assign \addr_sel_inst:1226  = _4_;
   assign \do  = _2_;
 endmodule
 
 (* top =  1  *)
 module efuse_ctrl(wb_rst_i, wb_clk_i, wb_adr_i, wb_dat_i, wb_we_i, wb_sel_i, wb_stb_i, wb_cyc_i, wb_dat_o, wb_ack_o);
   wire _00_;
-  wire [13:0] _01_;
-  wire _02_;
+  wire [6:0] _01_;
+  wire [7:0] _02_;
   wire _03_;
-  wire _04_;
-  wire [31:0] _05_;
-  wire [7:0] _06_;
-  wire [2:0] _07_;
-  wire [9:0] _08_;
-  wire _09_;
-  wire _10_;
+  wire [2:0] _04_;
+  wire [15:0] _05_;
+  wire _06_;
+  wire [18:0] _07_;
+  wire _08_;
+  wire [2:0] _09_;
+  wire [15:0] _10_;
   wire [7:0] _11_;
-  wire [31:0] _12_;
-  wire _13_;
-  wire [2:0] _14_;
-  wire [9:0] _15_;
+  wire _12_;
+  wire [29:0] _13_;
+  wire _14_;
+  wire _15_;
   wire _16_;
-  wire _17_;
-  wire [31:0] _18_;
-  wire [8:0] _19_;
-  wire _20_;
-  wire [2:0] _21_;
+  wire [11:0] _17_;
+  wire [7:0] _18_;
+  wire [2:0] _19_;
+  wire [11:0] _20_;
+  wire _21_;
   wire _22_;
-  wire [9:0] _23_;
-  wire _24_;
+  wire _23_;
+  wire [11:0] _24_;
   wire _25_;
-  wire [7:0] _26_;
-  wire _27_;
+  wire [2:0] _26_;
+  wire [11:0] _27_;
   wire _28_;
   wire _29_;
-  wire [7:0] _30_;
-  wire [10:0] _31_;
-  wire [2:0] _32_;
+  wire [11:0] _30_;
+  wire [8:0] _31_;
+  wire _32_;
   wire _33_;
-  wire [9:0] _34_;
-  wire [7:0] _35_;
-  reg [42:0] _36_;
+  wire [2:0] _34_;
+  wire [11:0] _35_;
+  wire _36_;
   wire _37_;
-  wire _38_;
+  wire [7:0] _38_;
   wire _39_;
-  wire [2:0] _40_;
+  wire _40_;
   wire _41_;
+  wire [7:0] _42_;
+  wire [10:0] _43_;
+  wire _44_;
+  wire [2:0] _45_;
+  wire [15:0] _46_;
+  wire [11:0] _47_;
+  wire [7:0] _48_;
+  reg [60:0] _49_;
+  wire _50_;
+  wire _51_;
+  wire _52_;
+  wire _53_;
   wire [7:0] \do ;
-  wire [7:0] \efuse_rom_inst:163 ;
+  wire [7:0] \efuse_rom_inst:187 ;
   wire inpreset;
   wire [7:0] iprog_ena;
   wire isense;
-  wire [42:0] r;
-  wire [42:0] rin;
+  wire [60:0] r;
+  wire [60:0] rin;
   output wb_ack_o;
   wire wb_ack_o;
-  input [10:0] wb_adr_i;
-  wire [10:0] wb_adr_i;
+  input [11:0] wb_adr_i;
+  wire [11:0] wb_adr_i;
   input wb_clk_i;
   wire wb_clk_i;
   input wb_cyc_i;
@@ -969,238 +981,272 @@ module efuse_ctrl(wb_rst_i, wb_clk_i, wb_adr_i, wb_dat_i, wb_we_i, wb_sel_i, wb_
   input wb_we_i;
   wire wb_we_i;
   assign _33_ = r[10] & _22_;
-  assign _18_ = { 22'h000000, r[42:33] } + 32'd1;
-  assign _19_ = _17_ ? { 1'h1, \do  } : { 1'h0, r[7:0] };
-  assign _20_ = _17_ ? 1'h0 : 1'h1;
-  assign _21_ = _17_ ? 3'h5 : r[32:30];
-  assign _23_ = _17_ ? 10'h000 : _18_[9:0];
-  assign _37_ = ~ wb_rst_i;
-  assign _24_ = r[32:30] == 3'h3;
-  assign _25_ = r[32:30] == 3'h5;
-  function [7:0] \129 ;
+  assign _21_ = r[32:30] == 3'h1;
+  assign _23_ = r[60:51] == { 6'h00, r[43:40] };
+  assign _24_ = r[60:49] + 12'h001;
+  assign _25_ = _23_ ? 1'h1 : 1'h0;
+  assign _26_ = _23_ ? 3'h3 : r[32:30];
+  assign _27_ = _23_ ? 12'h000 : _24_;
+  assign _28_ = r[32:30] == 3'h2;
+  assign _44_ = ~ wb_rst_i;
+  assign _29_ = r[60:51] == { 6'h00, r[47:44] };
+  assign _30_ = r[60:49] + 12'h001;
+  assign _50_ = r[9] & _44_;
+  assign _31_ = _29_ ? { 1'h1, \do  } : { 1'h0, r[7:0] };
+  assign _32_ = _29_ ? 1'h0 : 1'h1;
+  assign _34_ = _29_ ? 3'h5 : r[32:30];
+  assign _35_ = _29_ ? 12'h000 : _30_;
+  assign _36_ = r[32:30] == 3'h3;
+  assign _37_ = r[32:30] == 3'h5;
+  function [7:0] \148 ;
     input [7:0] a;
     input [47:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \129  = b[7:0];
+        \148  = b[7:0];
       6'b????1?:
-        \129  = b[15:8];
+        \148  = b[15:8];
       6'b???1??:
-        \129  = b[23:16];
+        \148  = b[23:16];
       6'b??1???:
-        \129  = b[31:24];
+        \148  = b[31:24];
       6'b?1????:
-        \129  = b[39:32];
+        \148  = b[39:32];
       6'b1?????:
-        \129  = b[47:40];
+        \148  = b[47:40];
       default:
-        \129  = a;
+        \148  = a;
     endcase
   endfunction
-  assign _26_ = \129 (8'hxx, { r[7:0], _19_[7:0], r[7:0], r[7:0], r[7:0], r[7:0] }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  assign _38_ = r[9] & _37_;
-  function [0:0] \133 ;
+  assign _38_ = \148 (8'hxx, { r[7:0], _31_[7:0], r[7:0], r[7:0], r[7:0], r[7:0] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [0:0] \152 ;
     input [0:0] a;
     input [5:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \133  = b[0:0];
+        \152  = b[0:0];
       6'b????1?:
-        \133  = b[1:1];
+        \152  = b[1:1];
       6'b???1??:
-        \133  = b[2:2];
+        \152  = b[2:2];
       6'b??1???:
-        \133  = b[3:3];
+        \152  = b[3:3];
       6'b?1????:
-        \133  = b[4:4];
+        \152  = b[4:4];
       6'b1?????:
-        \133  = b[5:5];
+        \152  = b[5:5];
       default:
-        \133  = a;
+        \152  = a;
     endcase
   endfunction
-  assign _27_ = \133 (1'hx, { 1'h0, _19_[8], 1'h0, r[8], 1'h0, _39_ }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  function [0:0] \136 ;
+  assign _39_ = \152 (1'hx, { 1'h0, _31_[8], 1'h0, r[8], 1'h0, _06_ }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [0:0] \155 ;
     input [0:0] a;
     input [5:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \136  = b[0:0];
+        \155  = b[0:0];
       6'b????1?:
-        \136  = b[1:1];
+        \155  = b[1:1];
       6'b???1??:
-        \136  = b[2:2];
+        \155  = b[2:2];
       6'b??1???:
-        \136  = b[3:3];
+        \155  = b[3:3];
       6'b?1????:
-        \136  = b[4:4];
+        \155  = b[4:4];
       6'b1?????:
-        \136  = b[5:5];
+        \155  = b[5:5];
       default:
-        \136  = a;
+        \155  = a;
     endcase
   endfunction
-  assign _28_ = \136 (1'hx, { r[9], r[9], _13_, r[9], r[9], r[9] }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  function [0:0] \139 ;
+  assign _40_ = \155 (1'hx, { r[9], r[9], _25_, r[9], r[9], r[9] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [0:0] \158 ;
     input [0:0] a;
     input [5:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \139  = b[0:0];
+        \158  = b[0:0];
       6'b????1?:
-        \139  = b[1:1];
+        \158  = b[1:1];
       6'b???1??:
-        \139  = b[2:2];
+        \158  = b[2:2];
       6'b??1???:
-        \139  = b[3:3];
+        \158  = b[3:3];
       6'b?1????:
-        \139  = b[4:4];
+        \158  = b[4:4];
       6'b1?????:
-        \139  = b[5:5];
+        \158  = b[5:5];
       default:
-        \139  = a;
+        \158  = a;
     endcase
   endfunction
-  assign _29_ = \139 (1'hx, { r[10], _20_, r[10], r[10], r[10], r[10] }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  function [7:0] \142 ;
+  assign _41_ = \158 (1'hx, { r[10], _32_, r[10], r[10], r[10], r[10] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [7:0] \161 ;
     input [7:0] a;
     input [47:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \142  = b[7:0];
+        \161  = b[7:0];
       6'b????1?:
-        \142  = b[15:8];
+        \161  = b[15:8];
       6'b???1??:
-        \142  = b[23:16];
+        \161  = b[23:16];
       6'b??1???:
-        \142  = b[31:24];
+        \161  = b[31:24];
       6'b?1????:
-        \142  = b[39:32];
+        \161  = b[39:32];
       6'b1?????:
-        \142  = b[47:40];
+        \161  = b[47:40];
       default:
-        \142  = a;
+        \161  = a;
     endcase
   endfunction
-  assign _30_ = \142 (8'hxx, { r[18:11], r[18:11], r[18:11], _06_, wb_dat_i, 8'h00 }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  function [10:0] \146 ;
+  assign _42_ = \161 (8'hxx, { r[18:11], r[18:11], r[18:11], _18_, wb_dat_i, 8'h00 }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [10:0] \165 ;
     input [10:0] a;
     input [65:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \146  = b[10:0];
+        \165  = b[10:0];
       6'b????1?:
-        \146  = b[21:11];
+        \165  = b[21:11];
       6'b???1??:
-        \146  = b[32:22];
+        \165  = b[32:22];
       6'b??1???:
-        \146  = b[43:33];
+        \165  = b[43:33];
       6'b?1????:
-        \146  = b[54:44];
+        \165  = b[54:44];
       6'b1?????:
-        \146  = b[65:55];
+        \165  = b[65:55];
       default:
-        \146  = a;
+        \165  = a;
     endcase
   endfunction
-  assign _31_ = \146 (11'hxxx, { r[29:19], r[29:19], r[29:19], r[29:19], r[29:19], _01_[10:0] }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  function [2:0] \149 ;
+  assign _43_ = \165 (11'hxxx, { r[29:19], r[29:19], r[29:19], r[29:19], r[29:19], _13_[10:0] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [2:0] \168 ;
     input [2:0] a;
     input [17:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \149  = b[2:0];
+        \168  = b[2:0];
       6'b????1?:
-        \149  = b[5:3];
+        \168  = b[5:3];
       6'b???1??:
-        \149  = b[8:6];
+        \168  = b[8:6];
       6'b??1???:
-        \149  = b[11:9];
+        \168  = b[11:9];
       6'b?1????:
-        \149  = b[14:12];
+        \168  = b[14:12];
       6'b1?????:
-        \149  = b[17:15];
+        \168  = b[17:15];
       default:
-        \149  = a;
+        \168  = a;
     endcase
   endfunction
-  assign _32_ = \149 (3'hx, { 3'h0, _21_, _14_, _07_, 3'h1, _01_[13:11] }, { _25_, _24_, _16_, _09_, _03_, _02_ });
-  function [9:0] \152 ;
-    input [9:0] a;
-    input [59:0] b;
+  assign _45_ = \168 (3'hx, { 3'h0, _34_, _26_, _19_, 3'h1, _13_[13:11] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [15:0] \172 ;
+    input [15:0] a;
+    input [95:0] b;
     input [5:0] s;
     (* parallel_case *)
     casez (s)
       6'b?????1:
-        \152  = b[9:0];
+        \172  = b[15:0];
       6'b????1?:
-        \152  = b[19:10];
+        \172  = b[31:16];
       6'b???1??:
-        \152  = b[29:20];
+        \172  = b[47:32];
       6'b??1???:
-        \152  = b[39:30];
+        \172  = b[63:48];
       6'b?1????:
-        \152  = b[49:40];
+        \172  = b[79:64];
       6'b1?????:
-        \152  = b[59:50];
+        \172  = b[95:80];
       default:
-        \152  = a;
+        \172  = a;
     endcase
   endfunction
-  assign _34_ = \152 (10'hxxx, { r[42:33], _23_, _15_, _08_, r[42:33], r[42:33] }, { _25_, _24_, _16_, _09_, _03_, _02_ });
+  assign _46_ = \172 (16'hxxxx, { r[48:33], r[48:33], r[48:33], r[48:33], r[48:33], _13_[29:14] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
+  function [11:0] \175 ;
+    input [11:0] a;
+    input [71:0] b;
+    input [5:0] s;
+    (* parallel_case *)
+    casez (s)
+      6'b?????1:
+        \175  = b[11:0];
+      6'b????1?:
+        \175  = b[23:12];
+      6'b???1??:
+        \175  = b[35:24];
+      6'b??1???:
+        \175  = b[47:36];
+      6'b?1????:
+        \175  = b[59:48];
+      6'b1?????:
+        \175  = b[71:60];
+      default:
+        \175  = a;
+    endcase
+  endfunction
+  assign _47_ = \175 (12'hxxx, { r[60:49], _35_, _27_, _20_, r[60:49], r[60:49] }, { _37_, _36_, _28_, _21_, _15_, _14_ });
   always @(posedge wb_clk_i, posedge wb_rst_i)
-    if (wb_rst_i) _36_ <= 43'h00000000200;
-    else _36_ <= rin;
-  assign _39_ = _41_ ? 1'h1 : 1'h0;
-  assign _40_ = wb_we_i ? 3'h4 : 3'h2;
-  assign _41_ = wb_stb_i & wb_we_i;
-  assign _01_ = wb_stb_i ? { _40_, wb_adr_i } : r[32:19];
-  assign _02_ = r[32:30] == 3'h0;
-  assign _03_ = r[32:30] == 3'h4;
+    if (wb_rst_i) _49_ <= 61'h0000332000000200;
+    else _49_ <= rin;
+  assign _51_ = ~ r[48];
+  assign _52_ = ~ wb_adr_i[11];
+  assign _53_ = ~ wb_adr_i[0];
   assign _00_ = ~ wb_rst_i;
-  assign _04_ = $signed({ 22'h000000, r[42:33] }) < $signed(32'd500);
-  assign _05_ = { 22'h000000, r[42:33] } + 32'd1;
-  assign _06_ = _04_ ? r[18:11] : 8'h00;
-  assign _07_ = _04_ ? r[32:30] : 3'h0;
-  assign _08_ = _04_ ? _05_[9:0] : 10'h000;
-  assign _09_ = r[32:30] == 3'h1;
+  assign _01_ = _53_ ? r[39:33] : wb_dat_i[6:0];
+  assign _02_ = _53_ ? { wb_dat_i[3:0], wb_dat_i[7:4] } : r[47:40];
+  assign _03_ = _53_ ? r[48] : wb_dat_i[7];
+  assign _04_ = _52_ ? 3'h4 : r[32:30];
+  assign _05_ = _52_ ? r[48:33] : { _03_, _02_, _01_ };
+  assign _06_ = _12_ ? 1'h1 : 1'h0;
+  assign _07_ = _51_ ? { _05_, _04_ } : r[48:30];
   assign _11_ = r[18:11] & { _00_, _00_, _00_, _00_, _00_, _00_, _00_, _00_ };
-  assign _10_ = { 22'h000000, r[42:33] } == 32'd10;
-  assign _12_ = { 22'h000000, r[42:33] } + 32'd1;
-  assign _13_ = _10_ ? 1'h1 : 1'h0;
-  assign _14_ = _10_ ? 3'h3 : r[32:30];
+  assign _08_ = wb_we_i & _51_;
+  assign _09_ = wb_we_i ? _07_[2:0] : 3'h2;
+  assign _10_ = wb_we_i ? _07_[18:3] : r[48:33];
+  assign _12_ = wb_stb_i & _08_;
+  assign _13_ = wb_stb_i ? { _10_, _09_, wb_adr_i[10:0] } : r[48:19];
+  assign _14_ = r[32:30] == 3'h0;
+  assign _15_ = r[32:30] == 3'h4;
+  assign _16_ = r[60:54] == r[39:33];
   assign _22_ = ~ wb_rst_i;
-  assign _15_ = _10_ ? 10'h000 : _12_[9:0];
-  assign _16_ = r[32:30] == 3'h2;
-  assign _17_ = { 22'h000000, r[42:33] } == 32'd10;
+  assign _17_ = r[60:49] + 12'h001;
+  assign _18_ = _16_ ? 8'h00 : r[18:11];
+  assign _19_ = _16_ ? 3'h0 : r[32:30];
+  assign _20_ = _16_ ? 12'h000 : _17_;
   efuse_rom_8_11_7_72 efuse_rom_inst (
     .addr(r[29:19]),
-    .\do (_35_),
+    .\do (_48_),
     .npreset(inpreset),
     .prog_ena(iprog_ena),
     .sense(isense)
   );
-  assign r = _36_;
-  assign rin = { _34_, _32_, _31_, _30_, _29_, _28_, _27_, _26_ };
-  assign \do  = \efuse_rom_inst:163 ;
+  assign r = _49_;
+  assign rin = { _47_, _46_, _45_, _43_, _42_, _41_, _40_, _39_, _38_ };
+  assign \do  = \efuse_rom_inst:187 ;
   assign iprog_ena = _11_;
-  assign inpreset = _38_;
+  assign inpreset = _50_;
   assign isense = _33_;
-  assign \efuse_rom_inst:163  = _35_;
+  assign \efuse_rom_inst:187  = _48_;
   assign wb_dat_o = r[7:0];
   assign wb_ack_o = r[8];
 endmodule
@@ -1339,25 +1385,25 @@ module efuse_rom_8_11_7_72(npreset, sense, prog_ena, addr, \do );
   wire [7:0] _130_;
   wire [7:0] _131_;
   wire [7:0] _132_;
-  wire [71:0] _133_;
-  wire [71:0] _134_;
-  wire [71:0] _135_;
-  wire [71:0] _136_;
-  wire [71:0] _137_;
-  wire [71:0] _138_;
-  wire [71:0] _139_;
+  wire [7:0] _133_;
+  wire [7:0] _134_;
+  wire [7:0] _135_;
+  wire [7:0] _136_;
+  wire [7:0] _137_;
+  wire [7:0] _138_;
+  wire [7:0] _139_;
   wire [7:0] _140_;
   wire [7:0] _141_;
   wire [7:0] _142_;
   wire [7:0] _143_;
   wire [7:0] _144_;
-  wire [7:0] _145_;
-  wire [7:0] _146_;
-  wire [7:0] _147_;
-  wire [7:0] _148_;
-  wire [7:0] _149_;
-  wire [7:0] _150_;
-  wire [7:0] _151_;
+  wire [71:0] _145_;
+  wire [71:0] _146_;
+  wire [71:0] _147_;
+  wire [71:0] _148_;
+  wire [71:0] _149_;
+  wire [71:0] _150_;
+  wire [71:0] _151_;
   wire [7:0] _152_;
   wire [7:0] _153_;
   wire [7:0] _154_;
@@ -1436,85 +1482,85 @@ module efuse_rom_8_11_7_72(npreset, sense, prog_ena, addr, \do );
   wire [575:0] data_out_array;
   output [7:0] \do ;
   wire [7:0] \do ;
-  wire [71:0] \gen_bank_dmuxes:1.muxn_inst:746 ;
-  wire [71:0] \gen_bank_dmuxes:2.muxn_inst:751 ;
-  wire [71:0] \gen_bank_dmuxes:3.muxn_inst:756 ;
-  wire [71:0] \gen_bank_dmuxes:4.muxn_inst:761 ;
-  wire [7:0] \gen_efuse_banks:1.efuse_bank_inst:173 ;
-  wire [7:0] \gen_efuse_banks:10.efuse_bank_inst:245 ;
-  wire [7:0] \gen_efuse_banks:11.efuse_bank_inst:253 ;
-  wire [7:0] \gen_efuse_banks:12.efuse_bank_inst:261 ;
-  wire [7:0] \gen_efuse_banks:13.efuse_bank_inst:269 ;
-  wire [7:0] \gen_efuse_banks:14.efuse_bank_inst:277 ;
-  wire [7:0] \gen_efuse_banks:15.efuse_bank_inst:285 ;
-  wire [7:0] \gen_efuse_banks:16.efuse_bank_inst:293 ;
-  wire [7:0] \gen_efuse_banks:17.efuse_bank_inst:301 ;
-  wire [7:0] \gen_efuse_banks:18.efuse_bank_inst:309 ;
-  wire [7:0] \gen_efuse_banks:19.efuse_bank_inst:317 ;
-  wire [7:0] \gen_efuse_banks:2.efuse_bank_inst:181 ;
-  wire [7:0] \gen_efuse_banks:20.efuse_bank_inst:325 ;
-  wire [7:0] \gen_efuse_banks:21.efuse_bank_inst:333 ;
-  wire [7:0] \gen_efuse_banks:22.efuse_bank_inst:341 ;
-  wire [7:0] \gen_efuse_banks:23.efuse_bank_inst:349 ;
-  wire [7:0] \gen_efuse_banks:24.efuse_bank_inst:357 ;
-  wire [7:0] \gen_efuse_banks:25.efuse_bank_inst:365 ;
-  wire [7:0] \gen_efuse_banks:26.efuse_bank_inst:373 ;
-  wire [7:0] \gen_efuse_banks:27.efuse_bank_inst:381 ;
-  wire [7:0] \gen_efuse_banks:28.efuse_bank_inst:389 ;
-  wire [7:0] \gen_efuse_banks:29.efuse_bank_inst:397 ;
-  wire [7:0] \gen_efuse_banks:3.efuse_bank_inst:189 ;
-  wire [7:0] \gen_efuse_banks:30.efuse_bank_inst:405 ;
-  wire [7:0] \gen_efuse_banks:31.efuse_bank_inst:413 ;
-  wire [7:0] \gen_efuse_banks:32.efuse_bank_inst:421 ;
-  wire [7:0] \gen_efuse_banks:33.efuse_bank_inst:429 ;
-  wire [7:0] \gen_efuse_banks:34.efuse_bank_inst:437 ;
-  wire [7:0] \gen_efuse_banks:35.efuse_bank_inst:445 ;
-  wire [7:0] \gen_efuse_banks:36.efuse_bank_inst:453 ;
-  wire [7:0] \gen_efuse_banks:37.efuse_bank_inst:461 ;
-  wire [7:0] \gen_efuse_banks:38.efuse_bank_inst:469 ;
-  wire [7:0] \gen_efuse_banks:39.efuse_bank_inst:477 ;
-  wire [7:0] \gen_efuse_banks:4.efuse_bank_inst:197 ;
-  wire [7:0] \gen_efuse_banks:40.efuse_bank_inst:485 ;
-  wire [7:0] \gen_efuse_banks:41.efuse_bank_inst:493 ;
-  wire [7:0] \gen_efuse_banks:42.efuse_bank_inst:501 ;
-  wire [7:0] \gen_efuse_banks:43.efuse_bank_inst:509 ;
-  wire [7:0] \gen_efuse_banks:44.efuse_bank_inst:517 ;
-  wire [7:0] \gen_efuse_banks:45.efuse_bank_inst:525 ;
-  wire [7:0] \gen_efuse_banks:46.efuse_bank_inst:533 ;
-  wire [7:0] \gen_efuse_banks:47.efuse_bank_inst:541 ;
-  wire [7:0] \gen_efuse_banks:48.efuse_bank_inst:549 ;
-  wire [7:0] \gen_efuse_banks:49.efuse_bank_inst:557 ;
-  wire [7:0] \gen_efuse_banks:5.efuse_bank_inst:205 ;
-  wire [7:0] \gen_efuse_banks:50.efuse_bank_inst:565 ;
-  wire [7:0] \gen_efuse_banks:51.efuse_bank_inst:573 ;
-  wire [7:0] \gen_efuse_banks:52.efuse_bank_inst:581 ;
-  wire [7:0] \gen_efuse_banks:53.efuse_bank_inst:589 ;
-  wire [7:0] \gen_efuse_banks:54.efuse_bank_inst:597 ;
-  wire [7:0] \gen_efuse_banks:55.efuse_bank_inst:605 ;
-  wire [7:0] \gen_efuse_banks:56.efuse_bank_inst:613 ;
-  wire [7:0] \gen_efuse_banks:57.efuse_bank_inst:621 ;
-  wire [7:0] \gen_efuse_banks:58.efuse_bank_inst:629 ;
-  wire [7:0] \gen_efuse_banks:59.efuse_bank_inst:637 ;
-  wire [7:0] \gen_efuse_banks:6.efuse_bank_inst:213 ;
-  wire [7:0] \gen_efuse_banks:60.efuse_bank_inst:645 ;
-  wire [7:0] \gen_efuse_banks:61.efuse_bank_inst:653 ;
-  wire [7:0] \gen_efuse_banks:62.efuse_bank_inst:661 ;
-  wire [7:0] \gen_efuse_banks:63.efuse_bank_inst:669 ;
-  wire [7:0] \gen_efuse_banks:64.efuse_bank_inst:677 ;
-  wire [7:0] \gen_efuse_banks:65.efuse_bank_inst:685 ;
-  wire [7:0] \gen_efuse_banks:66.efuse_bank_inst:693 ;
-  wire [7:0] \gen_efuse_banks:67.efuse_bank_inst:701 ;
-  wire [7:0] \gen_efuse_banks:68.efuse_bank_inst:709 ;
-  wire [7:0] \gen_efuse_banks:69.efuse_bank_inst:717 ;
-  wire [7:0] \gen_efuse_banks:7.efuse_bank_inst:221 ;
-  wire [7:0] \gen_efuse_banks:70.efuse_bank_inst:725 ;
-  wire [7:0] \gen_efuse_banks:71.efuse_bank_inst:733 ;
-  wire [7:0] \gen_efuse_banks:72.efuse_bank_inst:741 ;
-  wire [7:0] \gen_efuse_banks:8.efuse_bank_inst:229 ;
-  wire [7:0] \gen_efuse_banks:9.efuse_bank_inst:237 ;
+  wire [71:0] \gen_bank_dmuxes:1.muxn_inst:770 ;
+  wire [71:0] \gen_bank_dmuxes:2.muxn_inst:775 ;
+  wire [71:0] \gen_bank_dmuxes:3.muxn_inst:780 ;
+  wire [71:0] \gen_bank_dmuxes:4.muxn_inst:785 ;
+  wire [7:0] \gen_efuse_banks:1.efuse_bank_inst:197 ;
+  wire [7:0] \gen_efuse_banks:10.efuse_bank_inst:269 ;
+  wire [7:0] \gen_efuse_banks:11.efuse_bank_inst:277 ;
+  wire [7:0] \gen_efuse_banks:12.efuse_bank_inst:285 ;
+  wire [7:0] \gen_efuse_banks:13.efuse_bank_inst:293 ;
+  wire [7:0] \gen_efuse_banks:14.efuse_bank_inst:301 ;
+  wire [7:0] \gen_efuse_banks:15.efuse_bank_inst:309 ;
+  wire [7:0] \gen_efuse_banks:16.efuse_bank_inst:317 ;
+  wire [7:0] \gen_efuse_banks:17.efuse_bank_inst:325 ;
+  wire [7:0] \gen_efuse_banks:18.efuse_bank_inst:333 ;
+  wire [7:0] \gen_efuse_banks:19.efuse_bank_inst:341 ;
+  wire [7:0] \gen_efuse_banks:2.efuse_bank_inst:205 ;
+  wire [7:0] \gen_efuse_banks:20.efuse_bank_inst:349 ;
+  wire [7:0] \gen_efuse_banks:21.efuse_bank_inst:357 ;
+  wire [7:0] \gen_efuse_banks:22.efuse_bank_inst:365 ;
+  wire [7:0] \gen_efuse_banks:23.efuse_bank_inst:373 ;
+  wire [7:0] \gen_efuse_banks:24.efuse_bank_inst:381 ;
+  wire [7:0] \gen_efuse_banks:25.efuse_bank_inst:389 ;
+  wire [7:0] \gen_efuse_banks:26.efuse_bank_inst:397 ;
+  wire [7:0] \gen_efuse_banks:27.efuse_bank_inst:405 ;
+  wire [7:0] \gen_efuse_banks:28.efuse_bank_inst:413 ;
+  wire [7:0] \gen_efuse_banks:29.efuse_bank_inst:421 ;
+  wire [7:0] \gen_efuse_banks:3.efuse_bank_inst:213 ;
+  wire [7:0] \gen_efuse_banks:30.efuse_bank_inst:429 ;
+  wire [7:0] \gen_efuse_banks:31.efuse_bank_inst:437 ;
+  wire [7:0] \gen_efuse_banks:32.efuse_bank_inst:445 ;
+  wire [7:0] \gen_efuse_banks:33.efuse_bank_inst:453 ;
+  wire [7:0] \gen_efuse_banks:34.efuse_bank_inst:461 ;
+  wire [7:0] \gen_efuse_banks:35.efuse_bank_inst:469 ;
+  wire [7:0] \gen_efuse_banks:36.efuse_bank_inst:477 ;
+  wire [7:0] \gen_efuse_banks:37.efuse_bank_inst:485 ;
+  wire [7:0] \gen_efuse_banks:38.efuse_bank_inst:493 ;
+  wire [7:0] \gen_efuse_banks:39.efuse_bank_inst:501 ;
+  wire [7:0] \gen_efuse_banks:4.efuse_bank_inst:221 ;
+  wire [7:0] \gen_efuse_banks:40.efuse_bank_inst:509 ;
+  wire [7:0] \gen_efuse_banks:41.efuse_bank_inst:517 ;
+  wire [7:0] \gen_efuse_banks:42.efuse_bank_inst:525 ;
+  wire [7:0] \gen_efuse_banks:43.efuse_bank_inst:533 ;
+  wire [7:0] \gen_efuse_banks:44.efuse_bank_inst:541 ;
+  wire [7:0] \gen_efuse_banks:45.efuse_bank_inst:549 ;
+  wire [7:0] \gen_efuse_banks:46.efuse_bank_inst:557 ;
+  wire [7:0] \gen_efuse_banks:47.efuse_bank_inst:565 ;
+  wire [7:0] \gen_efuse_banks:48.efuse_bank_inst:573 ;
+  wire [7:0] \gen_efuse_banks:49.efuse_bank_inst:581 ;
+  wire [7:0] \gen_efuse_banks:5.efuse_bank_inst:229 ;
+  wire [7:0] \gen_efuse_banks:50.efuse_bank_inst:589 ;
+  wire [7:0] \gen_efuse_banks:51.efuse_bank_inst:597 ;
+  wire [7:0] \gen_efuse_banks:52.efuse_bank_inst:605 ;
+  wire [7:0] \gen_efuse_banks:53.efuse_bank_inst:613 ;
+  wire [7:0] \gen_efuse_banks:54.efuse_bank_inst:621 ;
+  wire [7:0] \gen_efuse_banks:55.efuse_bank_inst:629 ;
+  wire [7:0] \gen_efuse_banks:56.efuse_bank_inst:637 ;
+  wire [7:0] \gen_efuse_banks:57.efuse_bank_inst:645 ;
+  wire [7:0] \gen_efuse_banks:58.efuse_bank_inst:653 ;
+  wire [7:0] \gen_efuse_banks:59.efuse_bank_inst:661 ;
+  wire [7:0] \gen_efuse_banks:6.efuse_bank_inst:237 ;
+  wire [7:0] \gen_efuse_banks:60.efuse_bank_inst:669 ;
+  wire [7:0] \gen_efuse_banks:61.efuse_bank_inst:677 ;
+  wire [7:0] \gen_efuse_banks:62.efuse_bank_inst:685 ;
+  wire [7:0] \gen_efuse_banks:63.efuse_bank_inst:693 ;
+  wire [7:0] \gen_efuse_banks:64.efuse_bank_inst:701 ;
+  wire [7:0] \gen_efuse_banks:65.efuse_bank_inst:709 ;
+  wire [7:0] \gen_efuse_banks:66.efuse_bank_inst:717 ;
+  wire [7:0] \gen_efuse_banks:67.efuse_bank_inst:725 ;
+  wire [7:0] \gen_efuse_banks:68.efuse_bank_inst:733 ;
+  wire [7:0] \gen_efuse_banks:69.efuse_bank_inst:741 ;
+  wire [7:0] \gen_efuse_banks:7.efuse_bank_inst:245 ;
+  wire [7:0] \gen_efuse_banks:70.efuse_bank_inst:749 ;
+  wire [7:0] \gen_efuse_banks:71.efuse_bank_inst:757 ;
+  wire [7:0] \gen_efuse_banks:72.efuse_bank_inst:765 ;
+  wire [7:0] \gen_efuse_banks:8.efuse_bank_inst:253 ;
+  wire [7:0] \gen_efuse_banks:9.efuse_bank_inst:261 ;
   input npreset;
   wire npreset;
-  wire [71:0] \prog_bank_sel_inst:1064 ;
+  wire [71:0] \prog_bank_sel_inst:1088 ;
   input [7:0] prog_ena;
   wire [7:0] prog_ena;
   wire [71:0] prog_sel;
@@ -1538,11 +1584,11 @@ module efuse_rom_8_11_7_72(npreset, sense, prog_ena, addr, \do );
   assign _015_ = addr[4] ? data_out_array[495:488] : data_out_array[487:480];
   assign _016_ = addr[4] ? data_out_array[527:520] : data_out_array[519:512];
   assign _017_ = addr[4] ? data_out_array[559:552] : data_out_array[551:544];
-  assign _018_ = addr[6] ? _141_ : _140_;
-  assign _019_ = addr[6] ? _145_ : _144_;
-  assign _020_ = addr[6] ? _149_ : _148_;
-  assign _021_ = addr[6] ? _153_ : _152_;
-  assign _022_ = addr[8] ? _159_ : _158_;
+  assign _018_ = addr[6] ? _153_ : _152_;
+  assign _019_ = addr[6] ? _157_ : _156_;
+  assign _020_ = addr[6] ? _161_ : _160_;
+  assign _021_ = addr[6] ? _165_ : _164_;
+  assign _022_ = addr[8] ? _171_ : _170_;
   assign _023_ = addr[4] ? data_out_array[31:24] : data_out_array[23:16];
   assign _024_ = addr[4] ? data_out_array[63:56] : data_out_array[55:48];
   assign _025_ = addr[4] ? data_out_array[95:88] : data_out_array[87:80];
@@ -1561,727 +1607,727 @@ module efuse_rom_8_11_7_72(npreset, sense, prog_ena, addr, \do );
   assign _038_ = addr[4] ? data_out_array[511:504] : data_out_array[503:496];
   assign _039_ = addr[4] ? data_out_array[543:536] : data_out_array[535:528];
   assign _040_ = addr[4] ? data_out_array[575:568] : data_out_array[567:560];
-  assign _041_ = addr[6] ? _143_ : _142_;
-  assign _042_ = addr[6] ? _147_ : _146_;
-  assign _043_ = addr[6] ? _151_ : _150_;
-  assign _044_ = addr[6] ? _155_ : _154_;
-  assign _045_ = addr[8] ? _161_ : _160_;
-  assign _140_ = addr[5] ? _023_ : _000_;
-  assign _141_ = addr[5] ? _024_ : _001_;
-  assign _142_ = addr[5] ? _025_ : _002_;
-  assign _143_ = addr[5] ? _026_ : _003_;
-  assign _144_ = addr[5] ? _027_ : _004_;
-  assign _145_ = addr[5] ? _028_ : _005_;
-  assign _146_ = addr[5] ? _029_ : _006_;
-  assign _147_ = addr[5] ? _030_ : _007_;
-  assign _148_ = addr[5] ? _031_ : _008_;
-  assign _149_ = addr[5] ? _032_ : _009_;
-  assign _150_ = addr[5] ? _033_ : _010_;
-  assign _151_ = addr[5] ? _034_ : _011_;
-  assign _152_ = addr[5] ? _035_ : _012_;
-  assign _153_ = addr[5] ? _036_ : _013_;
-  assign _154_ = addr[5] ? _037_ : _014_;
-  assign _155_ = addr[5] ? _038_ : _015_;
-  assign _156_ = addr[5] ? _039_ : _016_;
-  assign _157_ = addr[5] ? _040_ : _017_;
-  assign _158_ = addr[7] ? _041_ : _018_;
-  assign _159_ = addr[7] ? _042_ : _019_;
-  assign _160_ = addr[7] ? _043_ : _020_;
-  assign _161_ = addr[7] ? _044_ : _021_;
-  assign _163_ = addr[9] ? _045_ : _022_;
-  assign _162_ = addr[6] ? _157_ : _156_;
-  assign _164_ = addr[10] ? _162_ : _163_;
-  assign _165_ = prog_ena & { prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0] };
-  assign _167_ = prog_ena & { prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1] };
-  assign _169_ = prog_ena & { prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2] };
-  assign _171_ = prog_ena & { prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3] };
-  assign _173_ = prog_ena & { prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4] };
-  assign _175_ = prog_ena & { prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5] };
-  assign _177_ = prog_ena & { prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6] };
-  assign _179_ = prog_ena & { prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7] };
-  assign _181_ = prog_ena & { prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8] };
-  assign _183_ = prog_ena & { prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9] };
-  assign _185_ = prog_ena & { prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10] };
-  assign _187_ = prog_ena & { prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11] };
-  assign _189_ = prog_ena & { prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12] };
-  assign _191_ = prog_ena & { prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13] };
-  assign _193_ = prog_ena & { prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14] };
-  assign _195_ = prog_ena & { prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15] };
-  assign _197_ = prog_ena & { prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16] };
-  assign _199_ = prog_ena & { prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17] };
-  assign _201_ = prog_ena & { prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18] };
-  assign _203_ = prog_ena & { prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19] };
-  assign _205_ = prog_ena & { prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20] };
-  assign _207_ = prog_ena & { prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21] };
-  assign _209_ = prog_ena & { prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22] };
-  assign _211_ = prog_ena & { prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23] };
-  assign _213_ = prog_ena & { prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24] };
-  assign _215_ = prog_ena & { prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25] };
-  assign _217_ = prog_ena & { prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26] };
-  assign _219_ = prog_ena & { prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27] };
-  assign _221_ = prog_ena & { prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28] };
-  assign _047_ = prog_ena & { prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29] };
-  assign _049_ = prog_ena & { prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30] };
-  assign _051_ = prog_ena & { prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31] };
-  assign _053_ = prog_ena & { prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32] };
-  assign _055_ = prog_ena & { prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33] };
-  assign _057_ = prog_ena & { prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34] };
-  assign _059_ = prog_ena & { prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35] };
-  assign _061_ = prog_ena & { prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36] };
-  assign _063_ = prog_ena & { prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37] };
-  assign _065_ = prog_ena & { prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38] };
-  assign _067_ = prog_ena & { prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39] };
-  assign _069_ = prog_ena & { prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40] };
-  assign _071_ = prog_ena & { prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41] };
-  assign _073_ = prog_ena & { prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42] };
-  assign _075_ = prog_ena & { prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43] };
-  assign _077_ = prog_ena & { prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44] };
-  assign _079_ = prog_ena & { prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45] };
-  assign _081_ = prog_ena & { prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46] };
-  assign _083_ = prog_ena & { prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47] };
-  assign _085_ = prog_ena & { prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48] };
-  assign _087_ = prog_ena & { prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49] };
-  assign _089_ = prog_ena & { prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50] };
-  assign _091_ = prog_ena & { prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51] };
-  assign _093_ = prog_ena & { prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52] };
-  assign _095_ = prog_ena & { prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53] };
-  assign _097_ = prog_ena & { prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54] };
-  assign _099_ = prog_ena & { prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55] };
-  assign _101_ = prog_ena & { prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56] };
-  assign _103_ = prog_ena & { prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57] };
-  assign _105_ = prog_ena & { prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58] };
-  assign _107_ = prog_ena & { prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59] };
-  assign _109_ = prog_ena & { prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60] };
-  assign _111_ = prog_ena & { prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61] };
-  assign _113_ = prog_ena & { prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62] };
-  assign _115_ = prog_ena & { prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63] };
-  assign _117_ = prog_ena & { prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64] };
-  assign _119_ = prog_ena & { prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65] };
-  assign _121_ = prog_ena & { prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66] };
-  assign _123_ = prog_ena & { prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67] };
-  assign _125_ = prog_ena & { prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68] };
-  assign _127_ = prog_ena & { prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69] };
-  assign _129_ = prog_ena & { prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70] };
-  assign _131_ = prog_ena & { prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71] };
+  assign _041_ = addr[6] ? _155_ : _154_;
+  assign _042_ = addr[6] ? _159_ : _158_;
+  assign _043_ = addr[6] ? _163_ : _162_;
+  assign _044_ = addr[6] ? _167_ : _166_;
+  assign _045_ = addr[8] ? _173_ : _172_;
+  assign _152_ = addr[5] ? _023_ : _000_;
+  assign _153_ = addr[5] ? _024_ : _001_;
+  assign _154_ = addr[5] ? _025_ : _002_;
+  assign _155_ = addr[5] ? _026_ : _003_;
+  assign _156_ = addr[5] ? _027_ : _004_;
+  assign _157_ = addr[5] ? _028_ : _005_;
+  assign _158_ = addr[5] ? _029_ : _006_;
+  assign _159_ = addr[5] ? _030_ : _007_;
+  assign _160_ = addr[5] ? _031_ : _008_;
+  assign _161_ = addr[5] ? _032_ : _009_;
+  assign _162_ = addr[5] ? _033_ : _010_;
+  assign _163_ = addr[5] ? _034_ : _011_;
+  assign _164_ = addr[5] ? _035_ : _012_;
+  assign _165_ = addr[5] ? _036_ : _013_;
+  assign _166_ = addr[5] ? _037_ : _014_;
+  assign _167_ = addr[5] ? _038_ : _015_;
+  assign _168_ = addr[5] ? _039_ : _016_;
+  assign _169_ = addr[5] ? _040_ : _017_;
+  assign _170_ = addr[7] ? _041_ : _018_;
+  assign _171_ = addr[7] ? _042_ : _019_;
+  assign _172_ = addr[7] ? _043_ : _020_;
+  assign _173_ = addr[7] ? _044_ : _021_;
+  assign _175_ = addr[9] ? _045_ : _022_;
+  assign _174_ = addr[6] ? _169_ : _168_;
+  assign _176_ = addr[10] ? _174_ : _175_;
+  assign _177_ = prog_ena & { prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0], prog_sel[0] };
+  assign _179_ = prog_ena & { prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1], prog_sel[1] };
+  assign _181_ = prog_ena & { prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2], prog_sel[2] };
+  assign _183_ = prog_ena & { prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3], prog_sel[3] };
+  assign _185_ = prog_ena & { prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4], prog_sel[4] };
+  assign _187_ = prog_ena & { prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5], prog_sel[5] };
+  assign _189_ = prog_ena & { prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6], prog_sel[6] };
+  assign _191_ = prog_ena & { prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7], prog_sel[7] };
+  assign _193_ = prog_ena & { prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8], prog_sel[8] };
+  assign _195_ = prog_ena & { prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9], prog_sel[9] };
+  assign _197_ = prog_ena & { prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10], prog_sel[10] };
+  assign _199_ = prog_ena & { prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11], prog_sel[11] };
+  assign _201_ = prog_ena & { prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12], prog_sel[12] };
+  assign _203_ = prog_ena & { prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13], prog_sel[13] };
+  assign _205_ = prog_ena & { prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14], prog_sel[14] };
+  assign _207_ = prog_ena & { prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15], prog_sel[15] };
+  assign _209_ = prog_ena & { prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16], prog_sel[16] };
+  assign _211_ = prog_ena & { prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17], prog_sel[17] };
+  assign _213_ = prog_ena & { prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18], prog_sel[18] };
+  assign _215_ = prog_ena & { prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19], prog_sel[19] };
+  assign _217_ = prog_ena & { prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20], prog_sel[20] };
+  assign _219_ = prog_ena & { prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21], prog_sel[21] };
+  assign _221_ = prog_ena & { prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22], prog_sel[22] };
+  assign _047_ = prog_ena & { prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23], prog_sel[23] };
+  assign _049_ = prog_ena & { prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24], prog_sel[24] };
+  assign _051_ = prog_ena & { prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25], prog_sel[25] };
+  assign _053_ = prog_ena & { prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26], prog_sel[26] };
+  assign _055_ = prog_ena & { prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27], prog_sel[27] };
+  assign _057_ = prog_ena & { prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28], prog_sel[28] };
+  assign _059_ = prog_ena & { prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29], prog_sel[29] };
+  assign _061_ = prog_ena & { prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30], prog_sel[30] };
+  assign _063_ = prog_ena & { prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31], prog_sel[31] };
+  assign _065_ = prog_ena & { prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32], prog_sel[32] };
+  assign _067_ = prog_ena & { prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33], prog_sel[33] };
+  assign _069_ = prog_ena & { prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34], prog_sel[34] };
+  assign _071_ = prog_ena & { prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35], prog_sel[35] };
+  assign _073_ = prog_ena & { prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36], prog_sel[36] };
+  assign _075_ = prog_ena & { prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37], prog_sel[37] };
+  assign _077_ = prog_ena & { prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38], prog_sel[38] };
+  assign _079_ = prog_ena & { prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39], prog_sel[39] };
+  assign _081_ = prog_ena & { prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40], prog_sel[40] };
+  assign _083_ = prog_ena & { prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41], prog_sel[41] };
+  assign _085_ = prog_ena & { prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42], prog_sel[42] };
+  assign _087_ = prog_ena & { prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43], prog_sel[43] };
+  assign _089_ = prog_ena & { prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44], prog_sel[44] };
+  assign _091_ = prog_ena & { prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45], prog_sel[45] };
+  assign _093_ = prog_ena & { prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46], prog_sel[46] };
+  assign _095_ = prog_ena & { prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47], prog_sel[47] };
+  assign _097_ = prog_ena & { prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48], prog_sel[48] };
+  assign _099_ = prog_ena & { prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49], prog_sel[49] };
+  assign _101_ = prog_ena & { prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50], prog_sel[50] };
+  assign _103_ = prog_ena & { prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51], prog_sel[51] };
+  assign _105_ = prog_ena & { prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52], prog_sel[52] };
+  assign _107_ = prog_ena & { prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53], prog_sel[53] };
+  assign _109_ = prog_ena & { prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54], prog_sel[54] };
+  assign _111_ = prog_ena & { prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55], prog_sel[55] };
+  assign _113_ = prog_ena & { prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56], prog_sel[56] };
+  assign _115_ = prog_ena & { prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57], prog_sel[57] };
+  assign _117_ = prog_ena & { prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58], prog_sel[58] };
+  assign _119_ = prog_ena & { prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59], prog_sel[59] };
+  assign _121_ = prog_ena & { prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60], prog_sel[60] };
+  assign _123_ = prog_ena & { prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61], prog_sel[61] };
+  assign _125_ = prog_ena & { prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62], prog_sel[62] };
+  assign _127_ = prog_ena & { prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63], prog_sel[63] };
+  assign _129_ = prog_ena & { prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64], prog_sel[64] };
+  assign _131_ = prog_ena & { prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65], prog_sel[65] };
+  assign _133_ = prog_ena & { prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66], prog_sel[66] };
+  assign _135_ = prog_ena & { prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67], prog_sel[67] };
+  assign _137_ = prog_ena & { prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68], prog_sel[68] };
+  assign _139_ = prog_ena & { prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69], prog_sel[69] };
+  assign _141_ = prog_ena & { prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70], prog_sel[70] };
+  assign _143_ = prog_ena & { prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71], prog_sel[71] };
   dmuxn_7_72 \gen_bank_dmuxes:1.muxn_inst  (
     .data_in(addr[0]),
-    .data_out(_133_),
+    .data_out(_145_),
     .sel(addr[10:4])
   );
   dmuxn_7_72 \gen_bank_dmuxes:2.muxn_inst  (
     .data_in(addr[1]),
-    .data_out(_134_),
+    .data_out(_146_),
     .sel(addr[10:4])
   );
   dmuxn_7_72 \gen_bank_dmuxes:3.muxn_inst  (
     .data_in(addr[2]),
-    .data_out(_135_),
+    .data_out(_147_),
     .sel(addr[10:4])
   );
   dmuxn_7_72 \gen_bank_dmuxes:4.muxn_inst  (
     .data_in(addr[3]),
-    .data_out(_136_),
+    .data_out(_148_),
     .sel(addr[10:4])
   );
   efuse_bank_8_4 \gen_efuse_banks:1.efuse_bank_inst  (
     .addr(addr_array[3:0]),
-    .\do (_166_),
+    .\do (_178_),
     .npreset(npreset),
     .prog_ena(data_array[7:0]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:10.efuse_bank_inst  (
     .addr(addr_array[39:36]),
-    .\do (_184_),
+    .\do (_196_),
     .npreset(npreset),
     .prog_ena(data_array[79:72]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:11.efuse_bank_inst  (
     .addr(addr_array[43:40]),
-    .\do (_186_),
+    .\do (_198_),
     .npreset(npreset),
     .prog_ena(data_array[87:80]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:12.efuse_bank_inst  (
     .addr(addr_array[47:44]),
-    .\do (_188_),
+    .\do (_200_),
     .npreset(npreset),
     .prog_ena(data_array[95:88]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:13.efuse_bank_inst  (
     .addr(addr_array[51:48]),
-    .\do (_190_),
+    .\do (_202_),
     .npreset(npreset),
     .prog_ena(data_array[103:96]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:14.efuse_bank_inst  (
     .addr(addr_array[55:52]),
-    .\do (_192_),
+    .\do (_204_),
     .npreset(npreset),
     .prog_ena(data_array[111:104]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:15.efuse_bank_inst  (
     .addr(addr_array[59:56]),
-    .\do (_194_),
+    .\do (_206_),
     .npreset(npreset),
     .prog_ena(data_array[119:112]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:16.efuse_bank_inst  (
     .addr(addr_array[63:60]),
-    .\do (_196_),
+    .\do (_208_),
     .npreset(npreset),
     .prog_ena(data_array[127:120]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:17.efuse_bank_inst  (
     .addr(addr_array[67:64]),
-    .\do (_198_),
+    .\do (_210_),
     .npreset(npreset),
     .prog_ena(data_array[135:128]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:18.efuse_bank_inst  (
     .addr(addr_array[71:68]),
-    .\do (_200_),
+    .\do (_212_),
     .npreset(npreset),
     .prog_ena(data_array[143:136]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:19.efuse_bank_inst  (
     .addr(addr_array[75:72]),
-    .\do (_202_),
+    .\do (_214_),
     .npreset(npreset),
     .prog_ena(data_array[151:144]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:2.efuse_bank_inst  (
     .addr(addr_array[7:4]),
-    .\do (_168_),
+    .\do (_180_),
     .npreset(npreset),
     .prog_ena(data_array[15:8]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:20.efuse_bank_inst  (
     .addr(addr_array[79:76]),
-    .\do (_204_),
+    .\do (_216_),
     .npreset(npreset),
     .prog_ena(data_array[159:152]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:21.efuse_bank_inst  (
     .addr(addr_array[83:80]),
-    .\do (_206_),
+    .\do (_218_),
     .npreset(npreset),
     .prog_ena(data_array[167:160]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:22.efuse_bank_inst  (
     .addr(addr_array[87:84]),
-    .\do (_208_),
+    .\do (_220_),
     .npreset(npreset),
     .prog_ena(data_array[175:168]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:23.efuse_bank_inst  (
     .addr(addr_array[91:88]),
-    .\do (_210_),
+    .\do (_046_),
     .npreset(npreset),
     .prog_ena(data_array[183:176]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:24.efuse_bank_inst  (
     .addr(addr_array[95:92]),
-    .\do (_212_),
+    .\do (_048_),
     .npreset(npreset),
     .prog_ena(data_array[191:184]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:25.efuse_bank_inst  (
     .addr(addr_array[99:96]),
-    .\do (_214_),
+    .\do (_050_),
     .npreset(npreset),
     .prog_ena(data_array[199:192]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:26.efuse_bank_inst  (
     .addr(addr_array[103:100]),
-    .\do (_216_),
+    .\do (_052_),
     .npreset(npreset),
     .prog_ena(data_array[207:200]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:27.efuse_bank_inst  (
     .addr(addr_array[107:104]),
-    .\do (_218_),
+    .\do (_054_),
     .npreset(npreset),
     .prog_ena(data_array[215:208]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:28.efuse_bank_inst  (
     .addr(addr_array[111:108]),
-    .\do (_220_),
+    .\do (_056_),
     .npreset(npreset),
     .prog_ena(data_array[223:216]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:29.efuse_bank_inst  (
     .addr(addr_array[115:112]),
-    .\do (_046_),
+    .\do (_058_),
     .npreset(npreset),
     .prog_ena(data_array[231:224]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:3.efuse_bank_inst  (
     .addr(addr_array[11:8]),
-    .\do (_170_),
+    .\do (_182_),
     .npreset(npreset),
     .prog_ena(data_array[23:16]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:30.efuse_bank_inst  (
     .addr(addr_array[119:116]),
-    .\do (_048_),
+    .\do (_060_),
     .npreset(npreset),
     .prog_ena(data_array[239:232]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:31.efuse_bank_inst  (
     .addr(addr_array[123:120]),
-    .\do (_050_),
+    .\do (_062_),
     .npreset(npreset),
     .prog_ena(data_array[247:240]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:32.efuse_bank_inst  (
     .addr(addr_array[127:124]),
-    .\do (_052_),
+    .\do (_064_),
     .npreset(npreset),
     .prog_ena(data_array[255:248]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:33.efuse_bank_inst  (
     .addr(addr_array[131:128]),
-    .\do (_054_),
+    .\do (_066_),
     .npreset(npreset),
     .prog_ena(data_array[263:256]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:34.efuse_bank_inst  (
     .addr(addr_array[135:132]),
-    .\do (_056_),
+    .\do (_068_),
     .npreset(npreset),
     .prog_ena(data_array[271:264]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:35.efuse_bank_inst  (
     .addr(addr_array[139:136]),
-    .\do (_058_),
+    .\do (_070_),
     .npreset(npreset),
     .prog_ena(data_array[279:272]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:36.efuse_bank_inst  (
     .addr(addr_array[143:140]),
-    .\do (_060_),
+    .\do (_072_),
     .npreset(npreset),
     .prog_ena(data_array[287:280]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:37.efuse_bank_inst  (
     .addr(addr_array[147:144]),
-    .\do (_062_),
+    .\do (_074_),
     .npreset(npreset),
     .prog_ena(data_array[295:288]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:38.efuse_bank_inst  (
     .addr(addr_array[151:148]),
-    .\do (_064_),
+    .\do (_076_),
     .npreset(npreset),
     .prog_ena(data_array[303:296]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:39.efuse_bank_inst  (
     .addr(addr_array[155:152]),
-    .\do (_066_),
+    .\do (_078_),
     .npreset(npreset),
     .prog_ena(data_array[311:304]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:4.efuse_bank_inst  (
     .addr(addr_array[15:12]),
-    .\do (_172_),
+    .\do (_184_),
     .npreset(npreset),
     .prog_ena(data_array[31:24]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:40.efuse_bank_inst  (
     .addr(addr_array[159:156]),
-    .\do (_068_),
+    .\do (_080_),
     .npreset(npreset),
     .prog_ena(data_array[319:312]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:41.efuse_bank_inst  (
     .addr(addr_array[163:160]),
-    .\do (_070_),
+    .\do (_082_),
     .npreset(npreset),
     .prog_ena(data_array[327:320]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:42.efuse_bank_inst  (
     .addr(addr_array[167:164]),
-    .\do (_072_),
+    .\do (_084_),
     .npreset(npreset),
     .prog_ena(data_array[335:328]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:43.efuse_bank_inst  (
     .addr(addr_array[171:168]),
-    .\do (_074_),
+    .\do (_086_),
     .npreset(npreset),
     .prog_ena(data_array[343:336]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:44.efuse_bank_inst  (
     .addr(addr_array[175:172]),
-    .\do (_076_),
+    .\do (_088_),
     .npreset(npreset),
     .prog_ena(data_array[351:344]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:45.efuse_bank_inst  (
     .addr(addr_array[179:176]),
-    .\do (_078_),
+    .\do (_090_),
     .npreset(npreset),
     .prog_ena(data_array[359:352]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:46.efuse_bank_inst  (
     .addr(addr_array[183:180]),
-    .\do (_080_),
+    .\do (_092_),
     .npreset(npreset),
     .prog_ena(data_array[367:360]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:47.efuse_bank_inst  (
     .addr(addr_array[187:184]),
-    .\do (_082_),
+    .\do (_094_),
     .npreset(npreset),
     .prog_ena(data_array[375:368]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:48.efuse_bank_inst  (
     .addr(addr_array[191:188]),
-    .\do (_084_),
+    .\do (_096_),
     .npreset(npreset),
     .prog_ena(data_array[383:376]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:49.efuse_bank_inst  (
     .addr(addr_array[195:192]),
-    .\do (_086_),
+    .\do (_098_),
     .npreset(npreset),
     .prog_ena(data_array[391:384]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:5.efuse_bank_inst  (
     .addr(addr_array[19:16]),
-    .\do (_174_),
+    .\do (_186_),
     .npreset(npreset),
     .prog_ena(data_array[39:32]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:50.efuse_bank_inst  (
     .addr(addr_array[199:196]),
-    .\do (_088_),
+    .\do (_100_),
     .npreset(npreset),
     .prog_ena(data_array[399:392]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:51.efuse_bank_inst  (
     .addr(addr_array[203:200]),
-    .\do (_090_),
+    .\do (_102_),
     .npreset(npreset),
     .prog_ena(data_array[407:400]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:52.efuse_bank_inst  (
     .addr(addr_array[207:204]),
-    .\do (_092_),
+    .\do (_104_),
     .npreset(npreset),
     .prog_ena(data_array[415:408]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:53.efuse_bank_inst  (
     .addr(addr_array[211:208]),
-    .\do (_094_),
+    .\do (_106_),
     .npreset(npreset),
     .prog_ena(data_array[423:416]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:54.efuse_bank_inst  (
     .addr(addr_array[215:212]),
-    .\do (_096_),
+    .\do (_108_),
     .npreset(npreset),
     .prog_ena(data_array[431:424]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:55.efuse_bank_inst  (
     .addr(addr_array[219:216]),
-    .\do (_098_),
+    .\do (_110_),
     .npreset(npreset),
     .prog_ena(data_array[439:432]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:56.efuse_bank_inst  (
     .addr(addr_array[223:220]),
-    .\do (_100_),
+    .\do (_112_),
     .npreset(npreset),
     .prog_ena(data_array[447:440]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:57.efuse_bank_inst  (
     .addr(addr_array[227:224]),
-    .\do (_102_),
+    .\do (_114_),
     .npreset(npreset),
     .prog_ena(data_array[455:448]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:58.efuse_bank_inst  (
     .addr(addr_array[231:228]),
-    .\do (_104_),
+    .\do (_116_),
     .npreset(npreset),
     .prog_ena(data_array[463:456]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:59.efuse_bank_inst  (
     .addr(addr_array[235:232]),
-    .\do (_106_),
+    .\do (_118_),
     .npreset(npreset),
     .prog_ena(data_array[471:464]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:6.efuse_bank_inst  (
     .addr(addr_array[23:20]),
-    .\do (_176_),
+    .\do (_188_),
     .npreset(npreset),
     .prog_ena(data_array[47:40]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:60.efuse_bank_inst  (
     .addr(addr_array[239:236]),
-    .\do (_108_),
+    .\do (_120_),
     .npreset(npreset),
     .prog_ena(data_array[479:472]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:61.efuse_bank_inst  (
     .addr(addr_array[243:240]),
-    .\do (_110_),
+    .\do (_122_),
     .npreset(npreset),
     .prog_ena(data_array[487:480]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:62.efuse_bank_inst  (
     .addr(addr_array[247:244]),
-    .\do (_112_),
+    .\do (_124_),
     .npreset(npreset),
     .prog_ena(data_array[495:488]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:63.efuse_bank_inst  (
     .addr(addr_array[251:248]),
-    .\do (_114_),
+    .\do (_126_),
     .npreset(npreset),
     .prog_ena(data_array[503:496]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:64.efuse_bank_inst  (
     .addr(addr_array[255:252]),
-    .\do (_116_),
+    .\do (_128_),
     .npreset(npreset),
     .prog_ena(data_array[511:504]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:65.efuse_bank_inst  (
     .addr(addr_array[259:256]),
-    .\do (_118_),
+    .\do (_130_),
     .npreset(npreset),
     .prog_ena(data_array[519:512]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:66.efuse_bank_inst  (
     .addr(addr_array[263:260]),
-    .\do (_120_),
+    .\do (_132_),
     .npreset(npreset),
     .prog_ena(data_array[527:520]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:67.efuse_bank_inst  (
     .addr(addr_array[267:264]),
-    .\do (_122_),
+    .\do (_134_),
     .npreset(npreset),
     .prog_ena(data_array[535:528]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:68.efuse_bank_inst  (
     .addr(addr_array[271:268]),
-    .\do (_124_),
+    .\do (_136_),
     .npreset(npreset),
     .prog_ena(data_array[543:536]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:69.efuse_bank_inst  (
     .addr(addr_array[275:272]),
-    .\do (_126_),
+    .\do (_138_),
     .npreset(npreset),
     .prog_ena(data_array[551:544]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:7.efuse_bank_inst  (
     .addr(addr_array[27:24]),
-    .\do (_178_),
+    .\do (_190_),
     .npreset(npreset),
     .prog_ena(data_array[55:48]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:70.efuse_bank_inst  (
     .addr(addr_array[279:276]),
-    .\do (_128_),
+    .\do (_140_),
     .npreset(npreset),
     .prog_ena(data_array[559:552]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:71.efuse_bank_inst  (
     .addr(addr_array[283:280]),
-    .\do (_130_),
+    .\do (_142_),
     .npreset(npreset),
     .prog_ena(data_array[567:560]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:72.efuse_bank_inst  (
     .addr(addr_array[287:284]),
-    .\do (_132_),
+    .\do (_144_),
     .npreset(npreset),
     .prog_ena(data_array[575:568]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:8.efuse_bank_inst  (
     .addr(addr_array[31:28]),
-    .\do (_180_),
+    .\do (_192_),
     .npreset(npreset),
     .prog_ena(data_array[63:56]),
     .sense(sense)
   );
   efuse_bank_8_4 \gen_efuse_banks:9.efuse_bank_inst  (
     .addr(addr_array[35:32]),
-    .\do (_182_),
+    .\do (_194_),
     .npreset(npreset),
     .prog_ena(data_array[71:64]),
     .sense(sense)
   );
   dmuxn_7_72 preset_dmux_inst (
     .data_in(npreset),
-    .data_out(_138_),
+    .data_out(_150_),
     .sel(addr[10:4])
   );
   addr_sel_7_72 prog_bank_sel_inst (
     .addr_i(addr[10:4]),
-    .sel(_139_)
+    .sel(_151_)
   );
   dmuxn_7_72 sense_dmux_inst (
     .data_in(sense),
-    .data_out(_137_),
+    .data_out(_149_),
     .sel(addr[10:4])
   );
-  assign data_array = { _131_, _129_, _127_, _125_, _123_, _121_, _119_, _117_, _115_, _113_, _111_, _109_, _107_, _105_, _103_, _101_, _099_, _097_, _095_, _093_, _091_, _089_, _087_, _085_, _083_, _081_, _079_, _077_, _075_, _073_, _071_, _069_, _067_, _065_, _063_, _061_, _059_, _057_, _055_, _053_, _051_, _049_, _047_, _221_, _219_, _217_, _215_, _213_, _211_, _209_, _207_, _205_, _203_, _201_, _199_, _197_, _195_, _193_, _191_, _189_, _187_, _185_, _183_, _181_, _179_, _177_, _175_, _173_, _171_, _169_, _167_, _165_ };
-  assign data_out_array = { \gen_efuse_banks:72.efuse_bank_inst:741 , \gen_efuse_banks:71.efuse_bank_inst:733 , \gen_efuse_banks:70.efuse_bank_inst:725 , \gen_efuse_banks:69.efuse_bank_inst:717 , \gen_efuse_banks:68.efuse_bank_inst:709 , \gen_efuse_banks:67.efuse_bank_inst:701 , \gen_efuse_banks:66.efuse_bank_inst:693 , \gen_efuse_banks:65.efuse_bank_inst:685 , \gen_efuse_banks:64.efuse_bank_inst:677 , \gen_efuse_banks:63.efuse_bank_inst:669 , \gen_efuse_banks:62.efuse_bank_inst:661 , \gen_efuse_banks:61.efuse_bank_inst:653 , \gen_efuse_banks:60.efuse_bank_inst:645 , \gen_efuse_banks:59.efuse_bank_inst:637 , \gen_efuse_banks:58.efuse_bank_inst:629 , \gen_efuse_banks:57.efuse_bank_inst:621 , \gen_efuse_banks:56.efuse_bank_inst:613 , \gen_efuse_banks:55.efuse_bank_inst:605 , \gen_efuse_banks:54.efuse_bank_inst:597 , \gen_efuse_banks:53.efuse_bank_inst:589 , \gen_efuse_banks:52.efuse_bank_inst:581 , \gen_efuse_banks:51.efuse_bank_inst:573 , \gen_efuse_banks:50.efuse_bank_inst:565 , \gen_efuse_banks:49.efuse_bank_inst:557 , \gen_efuse_banks:48.efuse_bank_inst:549 , \gen_efuse_banks:47.efuse_bank_inst:541 , \gen_efuse_banks:46.efuse_bank_inst:533 , \gen_efuse_banks:45.efuse_bank_inst:525 , \gen_efuse_banks:44.efuse_bank_inst:517 , \gen_efuse_banks:43.efuse_bank_inst:509 , \gen_efuse_banks:42.efuse_bank_inst:501 , \gen_efuse_banks:41.efuse_bank_inst:493 , \gen_efuse_banks:40.efuse_bank_inst:485 , \gen_efuse_banks:39.efuse_bank_inst:477 , \gen_efuse_banks:38.efuse_bank_inst:469 , \gen_efuse_banks:37.efuse_bank_inst:461 , \gen_efuse_banks:36.efuse_bank_inst:453 , \gen_efuse_banks:35.efuse_bank_inst:445 , \gen_efuse_banks:34.efuse_bank_inst:437 , \gen_efuse_banks:33.efuse_bank_inst:429 , \gen_efuse_banks:32.efuse_bank_inst:421 , \gen_efuse_banks:31.efuse_bank_inst:413 , \gen_efuse_banks:30.efuse_bank_inst:405 , \gen_efuse_banks:29.efuse_bank_inst:397 , \gen_efuse_banks:28.efuse_bank_inst:389 , \gen_efuse_banks:27.efuse_bank_inst:381 , \gen_efuse_banks:26.efuse_bank_inst:373 , \gen_efuse_banks:25.efuse_bank_inst:365 , \gen_efuse_banks:24.efuse_bank_inst:357 , \gen_efuse_banks:23.efuse_bank_inst:349 , \gen_efuse_banks:22.efuse_bank_inst:341 , \gen_efuse_banks:21.efuse_bank_inst:333 , \gen_efuse_banks:20.efuse_bank_inst:325 , \gen_efuse_banks:19.efuse_bank_inst:317 , \gen_efuse_banks:18.efuse_bank_inst:309 , \gen_efuse_banks:17.efuse_bank_inst:301 , \gen_efuse_banks:16.efuse_bank_inst:293 , \gen_efuse_banks:15.efuse_bank_inst:285 , \gen_efuse_banks:14.efuse_bank_inst:277 , \gen_efuse_banks:13.efuse_bank_inst:269 , \gen_efuse_banks:12.efuse_bank_inst:261 , \gen_efuse_banks:11.efuse_bank_inst:253 , \gen_efuse_banks:10.efuse_bank_inst:245 , \gen_efuse_banks:9.efuse_bank_inst:237 , \gen_efuse_banks:8.efuse_bank_inst:229 , \gen_efuse_banks:7.efuse_bank_inst:221 , \gen_efuse_banks:6.efuse_bank_inst:213 , \gen_efuse_banks:5.efuse_bank_inst:205 , \gen_efuse_banks:4.efuse_bank_inst:197 , \gen_efuse_banks:3.efuse_bank_inst:189 , \gen_efuse_banks:2.efuse_bank_inst:181 , \gen_efuse_banks:1.efuse_bank_inst:173  };
+  assign data_array = { _143_, _141_, _139_, _137_, _135_, _133_, _131_, _129_, _127_, _125_, _123_, _121_, _119_, _117_, _115_, _113_, _111_, _109_, _107_, _105_, _103_, _101_, _099_, _097_, _095_, _093_, _091_, _089_, _087_, _085_, _083_, _081_, _079_, _077_, _075_, _073_, _071_, _069_, _067_, _065_, _063_, _061_, _059_, _057_, _055_, _053_, _051_, _049_, _047_, _221_, _219_, _217_, _215_, _213_, _211_, _209_, _207_, _205_, _203_, _201_, _199_, _197_, _195_, _193_, _191_, _189_, _187_, _185_, _183_, _181_, _179_, _177_ };
+  assign data_out_array = { \gen_efuse_banks:72.efuse_bank_inst:765 , \gen_efuse_banks:71.efuse_bank_inst:757 , \gen_efuse_banks:70.efuse_bank_inst:749 , \gen_efuse_banks:69.efuse_bank_inst:741 , \gen_efuse_banks:68.efuse_bank_inst:733 , \gen_efuse_banks:67.efuse_bank_inst:725 , \gen_efuse_banks:66.efuse_bank_inst:717 , \gen_efuse_banks:65.efuse_bank_inst:709 , \gen_efuse_banks:64.efuse_bank_inst:701 , \gen_efuse_banks:63.efuse_bank_inst:693 , \gen_efuse_banks:62.efuse_bank_inst:685 , \gen_efuse_banks:61.efuse_bank_inst:677 , \gen_efuse_banks:60.efuse_bank_inst:669 , \gen_efuse_banks:59.efuse_bank_inst:661 , \gen_efuse_banks:58.efuse_bank_inst:653 , \gen_efuse_banks:57.efuse_bank_inst:645 , \gen_efuse_banks:56.efuse_bank_inst:637 , \gen_efuse_banks:55.efuse_bank_inst:629 , \gen_efuse_banks:54.efuse_bank_inst:621 , \gen_efuse_banks:53.efuse_bank_inst:613 , \gen_efuse_banks:52.efuse_bank_inst:605 , \gen_efuse_banks:51.efuse_bank_inst:597 , \gen_efuse_banks:50.efuse_bank_inst:589 , \gen_efuse_banks:49.efuse_bank_inst:581 , \gen_efuse_banks:48.efuse_bank_inst:573 , \gen_efuse_banks:47.efuse_bank_inst:565 , \gen_efuse_banks:46.efuse_bank_inst:557 , \gen_efuse_banks:45.efuse_bank_inst:549 , \gen_efuse_banks:44.efuse_bank_inst:541 , \gen_efuse_banks:43.efuse_bank_inst:533 , \gen_efuse_banks:42.efuse_bank_inst:525 , \gen_efuse_banks:41.efuse_bank_inst:517 , \gen_efuse_banks:40.efuse_bank_inst:509 , \gen_efuse_banks:39.efuse_bank_inst:501 , \gen_efuse_banks:38.efuse_bank_inst:493 , \gen_efuse_banks:37.efuse_bank_inst:485 , \gen_efuse_banks:36.efuse_bank_inst:477 , \gen_efuse_banks:35.efuse_bank_inst:469 , \gen_efuse_banks:34.efuse_bank_inst:461 , \gen_efuse_banks:33.efuse_bank_inst:453 , \gen_efuse_banks:32.efuse_bank_inst:445 , \gen_efuse_banks:31.efuse_bank_inst:437 , \gen_efuse_banks:30.efuse_bank_inst:429 , \gen_efuse_banks:29.efuse_bank_inst:421 , \gen_efuse_banks:28.efuse_bank_inst:413 , \gen_efuse_banks:27.efuse_bank_inst:405 , \gen_efuse_banks:26.efuse_bank_inst:397 , \gen_efuse_banks:25.efuse_bank_inst:389 , \gen_efuse_banks:24.efuse_bank_inst:381 , \gen_efuse_banks:23.efuse_bank_inst:373 , \gen_efuse_banks:22.efuse_bank_inst:365 , \gen_efuse_banks:21.efuse_bank_inst:357 , \gen_efuse_banks:20.efuse_bank_inst:349 , \gen_efuse_banks:19.efuse_bank_inst:341 , \gen_efuse_banks:18.efuse_bank_inst:333 , \gen_efuse_banks:17.efuse_bank_inst:325 , \gen_efuse_banks:16.efuse_bank_inst:317 , \gen_efuse_banks:15.efuse_bank_inst:309 , \gen_efuse_banks:14.efuse_bank_inst:301 , \gen_efuse_banks:13.efuse_bank_inst:293 , \gen_efuse_banks:12.efuse_bank_inst:285 , \gen_efuse_banks:11.efuse_bank_inst:277 , \gen_efuse_banks:10.efuse_bank_inst:269 , \gen_efuse_banks:9.efuse_bank_inst:261 , \gen_efuse_banks:8.efuse_bank_inst:253 , \gen_efuse_banks:7.efuse_bank_inst:245 , \gen_efuse_banks:6.efuse_bank_inst:237 , \gen_efuse_banks:5.efuse_bank_inst:229 , \gen_efuse_banks:4.efuse_bank_inst:221 , \gen_efuse_banks:3.efuse_bank_inst:213 , \gen_efuse_banks:2.efuse_bank_inst:205 , \gen_efuse_banks:1.efuse_bank_inst:197  };
   assign addr_array = { addr_array_col[287], addr_array_col[215], addr_array_col[143], addr_array_col[71], addr_array_col[286], addr_array_col[214], addr_array_col[142], addr_array_col[70], addr_array_col[285], addr_array_col[213], addr_array_col[141], addr_array_col[69], addr_array_col[284], addr_array_col[212], addr_array_col[140], addr_array_col[68], addr_array_col[283], addr_array_col[211], addr_array_col[139], addr_array_col[67], addr_array_col[282], addr_array_col[210], addr_array_col[138], addr_array_col[66], addr_array_col[281], addr_array_col[209], addr_array_col[137], addr_array_col[65], addr_array_col[280], addr_array_col[208], addr_array_col[136], addr_array_col[64], addr_array_col[279], addr_array_col[207], addr_array_col[135], addr_array_col[63], addr_array_col[278], addr_array_col[206], addr_array_col[134], addr_array_col[62], addr_array_col[277], addr_array_col[205], addr_array_col[133], addr_array_col[61], addr_array_col[276], addr_array_col[204], addr_array_col[132], addr_array_col[60], addr_array_col[275], addr_array_col[203], addr_array_col[131], addr_array_col[59], addr_array_col[274], addr_array_col[202], addr_array_col[130], addr_array_col[58], addr_array_col[273], addr_array_col[201], addr_array_col[129], addr_array_col[57], addr_array_col[272], addr_array_col[200], addr_array_col[128], addr_array_col[56], addr_array_col[271], addr_array_col[199], addr_array_col[127], addr_array_col[55], addr_array_col[270], addr_array_col[198], addr_array_col[126], addr_array_col[54], addr_array_col[269], addr_array_col[197], addr_array_col[125], addr_array_col[53], addr_array_col[268], addr_array_col[196], addr_array_col[124], addr_array_col[52], addr_array_col[267], addr_array_col[195], addr_array_col[123], addr_array_col[51], addr_array_col[266], addr_array_col[194], addr_array_col[122], addr_array_col[50], addr_array_col[265], addr_array_col[193], addr_array_col[121], addr_array_col[49], addr_array_col[264], addr_array_col[192], addr_array_col[120], addr_array_col[48], addr_array_col[263], addr_array_col[191], addr_array_col[119], addr_array_col[47], addr_array_col[262], addr_array_col[190], addr_array_col[118], addr_array_col[46], addr_array_col[261], addr_array_col[189], addr_array_col[117], addr_array_col[45], addr_array_col[260], addr_array_col[188], addr_array_col[116], addr_array_col[44], addr_array_col[259], addr_array_col[187], addr_array_col[115], addr_array_col[43], addr_array_col[258], addr_array_col[186], addr_array_col[114], addr_array_col[42], addr_array_col[257], addr_array_col[185], addr_array_col[113], addr_array_col[41], addr_array_col[256], addr_array_col[184], addr_array_col[112], addr_array_col[40], addr_array_col[255], addr_array_col[183], addr_array_col[111], addr_array_col[39], addr_array_col[254], addr_array_col[182], addr_array_col[110], addr_array_col[38], addr_array_col[253], addr_array_col[181], addr_array_col[109], addr_array_col[37], addr_array_col[252], addr_array_col[180], addr_array_col[108], addr_array_col[36], addr_array_col[251], addr_array_col[179], addr_array_col[107], addr_array_col[35], addr_array_col[250], addr_array_col[178], addr_array_col[106], addr_array_col[34], addr_array_col[249], addr_array_col[177], addr_array_col[105], addr_array_col[33], addr_array_col[248], addr_array_col[176], addr_array_col[104], addr_array_col[32], addr_array_col[247], addr_array_col[175], addr_array_col[103], addr_array_col[31], addr_array_col[246], addr_array_col[174], addr_array_col[102], addr_array_col[30], addr_array_col[245], addr_array_col[173], addr_array_col[101], addr_array_col[29], addr_array_col[244], addr_array_col[172], addr_array_col[100], addr_array_col[28], addr_array_col[243], addr_array_col[171], addr_array_col[99], addr_array_col[27], addr_array_col[242], addr_array_col[170], addr_array_col[98], addr_array_col[26], addr_array_col[241], addr_array_col[169], addr_array_col[97], addr_array_col[25], addr_array_col[240], addr_array_col[168], addr_array_col[96], addr_array_col[24], addr_array_col[239], addr_array_col[167], addr_array_col[95], addr_array_col[23], addr_array_col[238], addr_array_col[166], addr_array_col[94], addr_array_col[22], addr_array_col[237], addr_array_col[165], addr_array_col[93], addr_array_col[21], addr_array_col[236], addr_array_col[164], addr_array_col[92], addr_array_col[20], addr_array_col[235], addr_array_col[163], addr_array_col[91], addr_array_col[19], addr_array_col[234], addr_array_col[162], addr_array_col[90], addr_array_col[18], addr_array_col[233], addr_array_col[161], addr_array_col[89], addr_array_col[17], addr_array_col[232], addr_array_col[160], addr_array_col[88], addr_array_col[16], addr_array_col[231], addr_array_col[159], addr_array_col[87], addr_array_col[15], addr_array_col[230], addr_array_col[158], addr_array_col[86], addr_array_col[14], addr_array_col[229], addr_array_col[157], addr_array_col[85], addr_array_col[13], addr_array_col[228], addr_array_col[156], addr_array_col[84], addr_array_col[12], addr_array_col[227], addr_array_col[155], addr_array_col[83], addr_array_col[11], addr_array_col[226], addr_array_col[154], addr_array_col[82], addr_array_col[10], addr_array_col[225], addr_array_col[153], addr_array_col[81], addr_array_col[9], addr_array_col[224], addr_array_col[152], addr_array_col[80], addr_array_col[8], addr_array_col[223], addr_array_col[151], addr_array_col[79], addr_array_col[7], addr_array_col[222], addr_array_col[150], addr_array_col[78], addr_array_col[6], addr_array_col[221], addr_array_col[149], addr_array_col[77], addr_array_col[5], addr_array_col[220], addr_array_col[148], addr_array_col[76], addr_array_col[4], addr_array_col[219], addr_array_col[147], addr_array_col[75], addr_array_col[3], addr_array_col[218], addr_array_col[146], addr_array_col[74], addr_array_col[2], addr_array_col[217], addr_array_col[145], addr_array_col[73], addr_array_col[1], addr_array_col[216], addr_array_col[144], addr_array_col[72], addr_array_col[0] };
-  assign addr_array_col = { \gen_bank_dmuxes:4.muxn_inst:761 , \gen_bank_dmuxes:3.muxn_inst:756 , \gen_bank_dmuxes:2.muxn_inst:751 , \gen_bank_dmuxes:1.muxn_inst:746  };
-  assign prog_sel = \prog_bank_sel_inst:1064 ;
-  assign \gen_efuse_banks:1.efuse_bank_inst:173  = _166_;
-  assign \gen_efuse_banks:2.efuse_bank_inst:181  = _168_;
-  assign \gen_efuse_banks:3.efuse_bank_inst:189  = _170_;
-  assign \gen_efuse_banks:4.efuse_bank_inst:197  = _172_;
-  assign \gen_efuse_banks:5.efuse_bank_inst:205  = _174_;
-  assign \gen_efuse_banks:6.efuse_bank_inst:213  = _176_;
-  assign \gen_efuse_banks:7.efuse_bank_inst:221  = _178_;
-  assign \gen_efuse_banks:8.efuse_bank_inst:229  = _180_;
-  assign \gen_efuse_banks:9.efuse_bank_inst:237  = _182_;
-  assign \gen_efuse_banks:10.efuse_bank_inst:245  = _184_;
-  assign \gen_efuse_banks:11.efuse_bank_inst:253  = _186_;
-  assign \gen_efuse_banks:12.efuse_bank_inst:261  = _188_;
-  assign \gen_efuse_banks:13.efuse_bank_inst:269  = _190_;
-  assign \gen_efuse_banks:14.efuse_bank_inst:277  = _192_;
-  assign \gen_efuse_banks:15.efuse_bank_inst:285  = _194_;
-  assign \gen_efuse_banks:16.efuse_bank_inst:293  = _196_;
-  assign \gen_efuse_banks:17.efuse_bank_inst:301  = _198_;
-  assign \gen_efuse_banks:18.efuse_bank_inst:309  = _200_;
-  assign \gen_efuse_banks:19.efuse_bank_inst:317  = _202_;
-  assign \gen_efuse_banks:20.efuse_bank_inst:325  = _204_;
-  assign \gen_efuse_banks:21.efuse_bank_inst:333  = _206_;
-  assign \gen_efuse_banks:22.efuse_bank_inst:341  = _208_;
-  assign \gen_efuse_banks:23.efuse_bank_inst:349  = _210_;
-  assign \gen_efuse_banks:24.efuse_bank_inst:357  = _212_;
-  assign \gen_efuse_banks:25.efuse_bank_inst:365  = _214_;
-  assign \gen_efuse_banks:26.efuse_bank_inst:373  = _216_;
-  assign \gen_efuse_banks:27.efuse_bank_inst:381  = _218_;
-  assign \gen_efuse_banks:28.efuse_bank_inst:389  = _220_;
-  assign \gen_efuse_banks:29.efuse_bank_inst:397  = _046_;
-  assign \gen_efuse_banks:30.efuse_bank_inst:405  = _048_;
-  assign \gen_efuse_banks:31.efuse_bank_inst:413  = _050_;
-  assign \gen_efuse_banks:32.efuse_bank_inst:421  = _052_;
-  assign \gen_efuse_banks:33.efuse_bank_inst:429  = _054_;
-  assign \gen_efuse_banks:34.efuse_bank_inst:437  = _056_;
-  assign \gen_efuse_banks:35.efuse_bank_inst:445  = _058_;
-  assign \gen_efuse_banks:36.efuse_bank_inst:453  = _060_;
-  assign \gen_efuse_banks:37.efuse_bank_inst:461  = _062_;
-  assign \gen_efuse_banks:38.efuse_bank_inst:469  = _064_;
-  assign \gen_efuse_banks:39.efuse_bank_inst:477  = _066_;
-  assign \gen_efuse_banks:40.efuse_bank_inst:485  = _068_;
-  assign \gen_efuse_banks:41.efuse_bank_inst:493  = _070_;
-  assign \gen_efuse_banks:42.efuse_bank_inst:501  = _072_;
-  assign \gen_efuse_banks:43.efuse_bank_inst:509  = _074_;
-  assign \gen_efuse_banks:44.efuse_bank_inst:517  = _076_;
-  assign \gen_efuse_banks:45.efuse_bank_inst:525  = _078_;
-  assign \gen_efuse_banks:46.efuse_bank_inst:533  = _080_;
-  assign \gen_efuse_banks:47.efuse_bank_inst:541  = _082_;
-  assign \gen_efuse_banks:48.efuse_bank_inst:549  = _084_;
-  assign \gen_efuse_banks:49.efuse_bank_inst:557  = _086_;
-  assign \gen_efuse_banks:50.efuse_bank_inst:565  = _088_;
-  assign \gen_efuse_banks:51.efuse_bank_inst:573  = _090_;
-  assign \gen_efuse_banks:52.efuse_bank_inst:581  = _092_;
-  assign \gen_efuse_banks:53.efuse_bank_inst:589  = _094_;
-  assign \gen_efuse_banks:54.efuse_bank_inst:597  = _096_;
-  assign \gen_efuse_banks:55.efuse_bank_inst:605  = _098_;
-  assign \gen_efuse_banks:56.efuse_bank_inst:613  = _100_;
-  assign \gen_efuse_banks:57.efuse_bank_inst:621  = _102_;
-  assign \gen_efuse_banks:58.efuse_bank_inst:629  = _104_;
-  assign \gen_efuse_banks:59.efuse_bank_inst:637  = _106_;
-  assign \gen_efuse_banks:60.efuse_bank_inst:645  = _108_;
-  assign \gen_efuse_banks:61.efuse_bank_inst:653  = _110_;
-  assign \gen_efuse_banks:62.efuse_bank_inst:661  = _112_;
-  assign \gen_efuse_banks:63.efuse_bank_inst:669  = _114_;
-  assign \gen_efuse_banks:64.efuse_bank_inst:677  = _116_;
-  assign \gen_efuse_banks:65.efuse_bank_inst:685  = _118_;
-  assign \gen_efuse_banks:66.efuse_bank_inst:693  = _120_;
-  assign \gen_efuse_banks:67.efuse_bank_inst:701  = _122_;
-  assign \gen_efuse_banks:68.efuse_bank_inst:709  = _124_;
-  assign \gen_efuse_banks:69.efuse_bank_inst:717  = _126_;
-  assign \gen_efuse_banks:70.efuse_bank_inst:725  = _128_;
-  assign \gen_efuse_banks:71.efuse_bank_inst:733  = _130_;
-  assign \gen_efuse_banks:72.efuse_bank_inst:741  = _132_;
-  assign \gen_bank_dmuxes:1.muxn_inst:746  = _133_;
-  assign \gen_bank_dmuxes:2.muxn_inst:751  = _134_;
-  assign \gen_bank_dmuxes:3.muxn_inst:756  = _135_;
-  assign \gen_bank_dmuxes:4.muxn_inst:761  = _136_;
-  assign \prog_bank_sel_inst:1064  = _139_;
-  assign \do  = _164_;
+  assign addr_array_col = { \gen_bank_dmuxes:4.muxn_inst:785 , \gen_bank_dmuxes:3.muxn_inst:780 , \gen_bank_dmuxes:2.muxn_inst:775 , \gen_bank_dmuxes:1.muxn_inst:770  };
+  assign prog_sel = \prog_bank_sel_inst:1088 ;
+  assign \gen_efuse_banks:1.efuse_bank_inst:197  = _178_;
+  assign \gen_efuse_banks:2.efuse_bank_inst:205  = _180_;
+  assign \gen_efuse_banks:3.efuse_bank_inst:213  = _182_;
+  assign \gen_efuse_banks:4.efuse_bank_inst:221  = _184_;
+  assign \gen_efuse_banks:5.efuse_bank_inst:229  = _186_;
+  assign \gen_efuse_banks:6.efuse_bank_inst:237  = _188_;
+  assign \gen_efuse_banks:7.efuse_bank_inst:245  = _190_;
+  assign \gen_efuse_banks:8.efuse_bank_inst:253  = _192_;
+  assign \gen_efuse_banks:9.efuse_bank_inst:261  = _194_;
+  assign \gen_efuse_banks:10.efuse_bank_inst:269  = _196_;
+  assign \gen_efuse_banks:11.efuse_bank_inst:277  = _198_;
+  assign \gen_efuse_banks:12.efuse_bank_inst:285  = _200_;
+  assign \gen_efuse_banks:13.efuse_bank_inst:293  = _202_;
+  assign \gen_efuse_banks:14.efuse_bank_inst:301  = _204_;
+  assign \gen_efuse_banks:15.efuse_bank_inst:309  = _206_;
+  assign \gen_efuse_banks:16.efuse_bank_inst:317  = _208_;
+  assign \gen_efuse_banks:17.efuse_bank_inst:325  = _210_;
+  assign \gen_efuse_banks:18.efuse_bank_inst:333  = _212_;
+  assign \gen_efuse_banks:19.efuse_bank_inst:341  = _214_;
+  assign \gen_efuse_banks:20.efuse_bank_inst:349  = _216_;
+  assign \gen_efuse_banks:21.efuse_bank_inst:357  = _218_;
+  assign \gen_efuse_banks:22.efuse_bank_inst:365  = _220_;
+  assign \gen_efuse_banks:23.efuse_bank_inst:373  = _046_;
+  assign \gen_efuse_banks:24.efuse_bank_inst:381  = _048_;
+  assign \gen_efuse_banks:25.efuse_bank_inst:389  = _050_;
+  assign \gen_efuse_banks:26.efuse_bank_inst:397  = _052_;
+  assign \gen_efuse_banks:27.efuse_bank_inst:405  = _054_;
+  assign \gen_efuse_banks:28.efuse_bank_inst:413  = _056_;
+  assign \gen_efuse_banks:29.efuse_bank_inst:421  = _058_;
+  assign \gen_efuse_banks:30.efuse_bank_inst:429  = _060_;
+  assign \gen_efuse_banks:31.efuse_bank_inst:437  = _062_;
+  assign \gen_efuse_banks:32.efuse_bank_inst:445  = _064_;
+  assign \gen_efuse_banks:33.efuse_bank_inst:453  = _066_;
+  assign \gen_efuse_banks:34.efuse_bank_inst:461  = _068_;
+  assign \gen_efuse_banks:35.efuse_bank_inst:469  = _070_;
+  assign \gen_efuse_banks:36.efuse_bank_inst:477  = _072_;
+  assign \gen_efuse_banks:37.efuse_bank_inst:485  = _074_;
+  assign \gen_efuse_banks:38.efuse_bank_inst:493  = _076_;
+  assign \gen_efuse_banks:39.efuse_bank_inst:501  = _078_;
+  assign \gen_efuse_banks:40.efuse_bank_inst:509  = _080_;
+  assign \gen_efuse_banks:41.efuse_bank_inst:517  = _082_;
+  assign \gen_efuse_banks:42.efuse_bank_inst:525  = _084_;
+  assign \gen_efuse_banks:43.efuse_bank_inst:533  = _086_;
+  assign \gen_efuse_banks:44.efuse_bank_inst:541  = _088_;
+  assign \gen_efuse_banks:45.efuse_bank_inst:549  = _090_;
+  assign \gen_efuse_banks:46.efuse_bank_inst:557  = _092_;
+  assign \gen_efuse_banks:47.efuse_bank_inst:565  = _094_;
+  assign \gen_efuse_banks:48.efuse_bank_inst:573  = _096_;
+  assign \gen_efuse_banks:49.efuse_bank_inst:581  = _098_;
+  assign \gen_efuse_banks:50.efuse_bank_inst:589  = _100_;
+  assign \gen_efuse_banks:51.efuse_bank_inst:597  = _102_;
+  assign \gen_efuse_banks:52.efuse_bank_inst:605  = _104_;
+  assign \gen_efuse_banks:53.efuse_bank_inst:613  = _106_;
+  assign \gen_efuse_banks:54.efuse_bank_inst:621  = _108_;
+  assign \gen_efuse_banks:55.efuse_bank_inst:629  = _110_;
+  assign \gen_efuse_banks:56.efuse_bank_inst:637  = _112_;
+  assign \gen_efuse_banks:57.efuse_bank_inst:645  = _114_;
+  assign \gen_efuse_banks:58.efuse_bank_inst:653  = _116_;
+  assign \gen_efuse_banks:59.efuse_bank_inst:661  = _118_;
+  assign \gen_efuse_banks:60.efuse_bank_inst:669  = _120_;
+  assign \gen_efuse_banks:61.efuse_bank_inst:677  = _122_;
+  assign \gen_efuse_banks:62.efuse_bank_inst:685  = _124_;
+  assign \gen_efuse_banks:63.efuse_bank_inst:693  = _126_;
+  assign \gen_efuse_banks:64.efuse_bank_inst:701  = _128_;
+  assign \gen_efuse_banks:65.efuse_bank_inst:709  = _130_;
+  assign \gen_efuse_banks:66.efuse_bank_inst:717  = _132_;
+  assign \gen_efuse_banks:67.efuse_bank_inst:725  = _134_;
+  assign \gen_efuse_banks:68.efuse_bank_inst:733  = _136_;
+  assign \gen_efuse_banks:69.efuse_bank_inst:741  = _138_;
+  assign \gen_efuse_banks:70.efuse_bank_inst:749  = _140_;
+  assign \gen_efuse_banks:71.efuse_bank_inst:757  = _142_;
+  assign \gen_efuse_banks:72.efuse_bank_inst:765  = _144_;
+  assign \gen_bank_dmuxes:1.muxn_inst:770  = _145_;
+  assign \gen_bank_dmuxes:2.muxn_inst:775  = _146_;
+  assign \gen_bank_dmuxes:3.muxn_inst:780  = _147_;
+  assign \gen_bank_dmuxes:4.muxn_inst:785  = _148_;
+  assign \prog_bank_sel_inst:1088  = _151_;
+  assign \do  = _176_;
 endmodule

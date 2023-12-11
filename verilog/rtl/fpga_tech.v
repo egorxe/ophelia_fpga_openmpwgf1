@@ -71,7 +71,7 @@ module efuse_ctrl (wb_ack_o,
  input wb_sel_i;
  input wb_stb_i;
  input wb_we_i;
- input [10:0] wb_adr_i;
+ input [11:0] wb_adr_i;
  input [7:0] wb_dat_i;
  output [7:0] wb_dat_o;
 endmodule

@@ -25,7 +25,6 @@ set ::env(FP_PDN_VWIDTH) 3.1
 set ::env(FP_PDN_HWIDTH) 3.1
 set ::env(DESIGN_IS_CORE) 1
 set ::env(SYNTH_STRATEGY) "AREA 0"
-set ::env(SYNTH_FIXED_NETLIST) "/home/egor/proj/fpga2/impl/open/designs/user_project_wrapper.v"
 set ::env(CLOCK_PERIOD) 100
 set ::env(CLOCK_PORT) "wb_clk_i"
 set ::env(CLOCK_NET) "wb_clk_i"
@@ -39,21 +38,21 @@ set ::env(FP_PDN_VERTICAL_HALO) 1
 set ::env(FP_PDN_VPITCH) 110
 set ::env(FP_PDN_VSPACING) 10
 set ::env(FP_PDN_HSPACING) 41.9
-set ::env(PL_TIME_DRIVEN) 1
 set ::env(PL_TARGET_DENSITY) 0.48
 set ::env(PL_RESIZER_ALLOW_SETUP_VIOS) 1
+set ::env(GLB_RESIZER_TIMING_OPTIMIZATIONS) 0
 set ::env(GRT_ALLOW_CONGESTION) 1
 set ::env(GRT_ADJUSTMENT) 0.0
-set ::env(FP_PDN_CFG) "/home/egor/proj/fpga2/impl/open/pdn_cfg.tcl"
+set ::env(FP_PDN_CFG) "/home/egor/proj/fpga/impl/open/pdn_cfg.tcl"
 set ::env(FP_TAP_HORIZONTAL_HALO) 5
 set ::env(RUN_KLAYOUT_XOR) 0
 set ::env(STA_WRITE_LIB) 0
 set ::env(RUN_IRDROP_REPORT) 0
 set ::env(PRIMARY_SIGNOFF_TOOL) klayout
-set ::env(VERILOG_FILES_BLACKBOX) "/home/egor/proj/fpga2/impl/open/macros.v"
-set ::env(EXTRA_LEFS) "/home/egor/proj/fpga2/impl/open/best/fpga_struct_block/results/final/lef/fpga_struct_block.lef /home/egor/proj/fpga2/impl/open/best/efuse_ctrl/results/final/lef/efuse_ctrl.lef"
-set ::env(EXTRA_LIBS) "/home/egor/proj/fpga2/impl/open/best/fpga_struct_block/results/final/lib/fpga_struct_block.lib /home/egor/proj/fpga2/impl/open/best/efuse_ctrl/results/final/lib/efuse_ctrl.lib"
-set ::env(EXTRA_GDS_FILES) "/home/egor/proj/fpga2/impl/open/best/fpga_struct_block/results/final/gds/fpga_struct_block.gds /home/egor/proj/fpga2/impl/open/best/efuse_ctrl/results/final/gds/efuse_ctrl.gds"
+set ::env(VERILOG_FILES_BLACKBOX) "/home/egor/proj/fpga/impl/open/macros.v"
+set ::env(EXTRA_LEFS) "/home/egor/proj/fpga/impl/open/best/fpga_struct_block/results/final/lef/fpga_struct_block.lef /home/egor/proj/fpga/impl/open/best/efuse_ctrl/results/final/lef/efuse_ctrl.lef"
+set ::env(EXTRA_LIBS) "/home/egor/proj/fpga/impl/open/best/fpga_struct_block/results/final/lib/fpga_struct_block.lib /home/egor/proj/fpga/impl/open/best/efuse_ctrl/results/final/lib/efuse_ctrl.lib"
+set ::env(EXTRA_GDS_FILES) "/home/egor/proj/fpga/impl/open/best/fpga_struct_block/results/final/gds/fpga_struct_block.gds /home/egor/proj/fpga/impl/open/best/efuse_ctrl/results/final/gds/efuse_ctrl.gds"
 set ::env(MACRO_PLACEMENT_CFG) "designs/user_project_wrapper/macro.cfg"
 set ::env(DESIGN_NAME) user_project_wrapper
 set ::env(VERILOG_FILES) "designs/user_project_wrapper/ariel_fpga_top_fromvhdl.v designs/user_project_wrapper/fpga_tech.v designs/user_project_wrapper/user_project_wrapper.v"
