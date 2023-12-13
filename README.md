@@ -16,8 +16,16 @@ Uranus FPGA uses opensource flow for FPGA bitstream generation. Yosys (with opti
 
 ## Sources
 
-This repository contains mainly implementation products (GDS/netlists/etc) needed for OpenMPW and test Caravel programs. VHDL sources of Uranus FPGA fabric, FPGA flow, tests and simulation scripts are stored in [main Uranus repository](https://github.com/egorxe/uranus_fpga). eFuse compiler resides in it's own [repository](https://github.com/egorxe/gf180_efuse_compiler).
+This repository contains mainly implementation products (GDS/netlists/etc) needed for OpenMPW and test Caravel programs. VHDL sources of Uranus FPGA fabric, FPGA flow, tests and simulation scripts are stored in [gf180 branch of main Uranus repository](https://github.com/egorxe/uranus_fpga/tree/gf180). eFuse compiler resides in it's own [repository](https://github.com/egorxe/gf180_efuse_compiler).
 
 ## Documentation
 
 Documentation is avaliable in [main Uranus repository](https://github.com/egorxe/uranus_fpga/blob/main/docs/index.rst).
+
+## Changes since GFMPW0
+
+* Fixed eFuse cells power connection issues which made eFuse testing impossible.
+* Fixed hold timing issues in FPGA fabric config loading register chains which broke most of FPGA firmwares.
+* Several small RTL improvements for automatic FPGA config loading from eFuse, OEB pins control, etc (see Uranus repository).
+* Several improvements in eFuse Pcell such as increase in ammount of vias in critical nets, better signal buffering, more power capacitors, etc.
+* Much better test coverage, thanks to introduction of SDF annotation capable cell models in GF180MCU PDK and full device level LVS in precheck.
